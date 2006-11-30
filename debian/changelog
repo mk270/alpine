@@ -1,0 +1,5 @@
+alpine (0.8-0) unstable; urgency=low
+
+  * Initial release. (Closes: #401001)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 29 Nov 2006 22:56:28 -0500
