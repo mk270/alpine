@@ -7,8 +7,7 @@ Standards-Version: 3.6.2
 
 Package: alpine
 Architecture: any
-Depends: {shlibs:Depends}
-Conflicts: nano
+Depends: ${shlibs:Depends}
 Description: Text-based email client, friendly for novices but powerful
  Alpine is an upgrade of the well-known PINE email client.  Alpine is currently in
  alpha.
@@ -17,5 +16,21 @@ Description: Text-based email client, friendly for novices but powerful
  protocols like Kerberos and TLS.  It uses curses for its interface.
  .
  Its name derives from the use the Apache License and its historical ties to PINE.
+ .
+ Homepage: http://www.washington.edu/alpine/
+
+Package: alpine-pico
+Architecture: any
+Depends: {shlibs:Depends}
+Conflicts: nano
+Description: Simple text editor from Alpine, a text-based email client
+ "pico" is a simple but powerful text editor.  It was originally the pine composer,
+ the editor used by the pine email client for writing email messages.
+ .
+ It has gained popularity since its initial use in that context and is now used
+ as a stand-alone editor by many users.
+ .
+ It is similar to but less powerful than GNU Nano, an editor created with the pico interface
+ when the pico license was non-free.
  .
  Homepage: http://www.washington.edu/alpine/
