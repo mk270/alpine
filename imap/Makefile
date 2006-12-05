@@ -529,7 +529,7 @@ ip6:
 	@echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	@echo
 	@echo Do you want to build with IPv6 anyway?  Type y or n please:
-	@$(SH) -c 'read x; case "$$x" in y) exit 0;; *) (make clean;exit 1);; esac'
+#	@$(SH) -c 'read x; case "$$x" in y) exit 0;; *) (make clean;exit 1);; esac'
 	@echo OK, I will remember that you really want to build with IPv6.
 	@echo You will not see this message again.
 	@$(TOUCH) ip6
