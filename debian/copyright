@@ -1,11 +1,13 @@
 This package was debianized by Asheesh Laroia <asheesh@asheesh.org> on
 Tue, 05 Dec 2006 15:37:10 -0500.
 
-It was downloaded from tp://ftp.cac.washington.edu/alpine/alpine-0.8.tar.gz
+It was downloaded from ftp://ftp.cac.washington.edu/alpine/alpine-0.8.tar.gz
 
 Upstream Authors: University of Washington - http://www.washington.edu/alpine/
 
-Copyright: 
+Copyright (C) 2006 University of Washington
+
+License: 
 
                                  Apache License
                            Version 2.0, January 2004
