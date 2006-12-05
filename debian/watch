@@ -8,5 +8,3 @@ version=3
 
 # Examine an FTP server
 ftp://ftp.cac.washington.edu/alpine/alpine-(.*?)\.tar\.gz debian uupdate
-
-
