@@ -92,6 +92,10 @@ install-arch:
 	# Add here commands to install the arch part of the package into 
 	# debian/tmp.
 	$(MAKE) DESTDIR=$(CURDIR)/debian/alpine install
+	mkdir -p $(CURDIR)/debian/alpine-pico/usr/bin
+	mkdir -p $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
+	mv $(CURDIR)/debian/alpine/usr/bin/pico $(CURDIR)/debian/alpine-pico/usr/bin
+	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pico.1.gz $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
 
 	dh_install -s
 # Must not depend on anything. This is to be called by
