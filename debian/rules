@@ -35,7 +35,7 @@ autotools:
 	fi
 
 #Architecture 
-build: build-arch build-indep
+build: build-arch
 
 build-arch: build-arch-stamp
 build-arch-stamp:  config.status
@@ -44,7 +44,7 @@ build-arch-stamp:  config.status
 clean: autotools
 	dh_testdir
 	dh_testroot
-	rm -f build-arch-stamp build-indep-stamp #CONFIGURE-STAMP#
+	rm -f build-arch-stamp #CONFIGURE-STAMP#
 	-$(MAKE) distclean
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
