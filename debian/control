@@ -2,7 +2,7 @@ Source: alpine
 Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
-Build-Depends: libldap2-dev, libpam-dev, debhelper, libncurses-dev, libssl-dev, libkrb5-dev
+Build-Depends: libldap2-dev, libpam-dev, debhelper, libncurses-dev, libssl-dev
 Standards-Version: 3.6.2
 
 Package: alpine
