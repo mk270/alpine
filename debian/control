@@ -1,5 +1,5 @@
 Source: alpine
-Section: unknown
+Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
 Build-Depends: libldap2-dev, libpam-dev, debhelper, libncurses-dev, libssl-dev
@@ -10,12 +10,10 @@ Architecture: any
 Depends: ${shlibs:Depends}
 Description: Text-based email client, friendly for novices but powerful
  Alpine is an upgrade of the well-known PINE email client.  Alpine is currently in
- alpha.
+ alpha.  Its name derives from the use of the Apache License and its ties to PINE.
  .
  It features a full suite of support for mail protocols like IMAP and SMTP and security
  protocols like Kerberos and TLS.  It uses curses for its interface.
- .
- Its name derives from the use the Apache License and its historical ties to PINE.
  .
  Homepage: http://www.washington.edu/alpine/
 
