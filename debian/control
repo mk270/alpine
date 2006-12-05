@@ -2,7 +2,7 @@ Source: alpine
 Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
-Build-Depends: libldap2-dev, libpam-dev, debhelper (>=4), libncurses-dev, libssl-dev
+Build-Depends: debhelper (>=4), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev
 Standards-Version: 3.7.2
 
 Package: alpine
@@ -18,7 +18,7 @@ Description: Text-based email client, friendly for novices but powerful
  It features a full suite of support for mail protocols like IMAP and SMTP and
  security protocols like TLS.  It uses curses for its interface.
  .
- Homepage: http://www.washington.edu/alpine/
+  Homepage: http://www.washington.edu/alpine/
 
 Package: alpine-pico
 Architecture: any
@@ -34,4 +34,4 @@ Description: Simple text editor from Alpine, a text-based email client
  It is similar to but less powerful than GNU Nano, an editor created with the 
  pico interface when the pico license was non-free.
  .
- Homepage: http://www.washington.edu/alpine/
+  Homepage: http://www.washington.edu/alpine/
