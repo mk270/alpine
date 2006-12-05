@@ -45,7 +45,6 @@ clean: autotools
 	dh_testdir
 	dh_testroot
 	rm -f build-arch-stamp build-indep-stamp #CONFIGURE-STAMP#
-
 	-$(MAKE) distclean
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
@@ -53,7 +52,6 @@ endif
 ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 	cp -f /usr/share/misc/config.guess config.guess
 endif
-
 	dh_clean 
 
 install: autotools install-arch
@@ -64,6 +62,7 @@ install-arch:
 	dh_clean -k -s 
 	dh_installdirs -s
 	$(MAKE) DESTDIR=$(CURDIR)/debian/alpine install
+	dh_link $(CURDIR)/debian/alpine/usr/bin/alpine $(CURDIR)/debian/alpine/usr/bin/pine
 	cp $(CURDIR)/doc/rpload.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 	cp $(CURDIR)/doc/rpdump.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 	mkdir -p $(CURDIR)/debian/alpine-pico/usr/bin/
