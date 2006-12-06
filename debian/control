@@ -8,8 +8,6 @@ Standards-Version: 3.7.2
 Package: alpine
 Architecture: any
 Depends: ${shlibs:Depends}
-Conflicts: pine
-Replaces: pine
 Description: Text-based email client, friendly for novices but powerful
  Alpine is an upgrade of the well-known PINE email client.  Alpine is currently
  in alpha.  Its name derives from the use of the Apache License and its ties to
