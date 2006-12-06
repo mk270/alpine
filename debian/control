@@ -2,12 +2,12 @@ Source: alpine
 Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
-Build-Depends: debhelper (>=4), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev
+Build-Depends: debhelper (>=4), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev, autotools-dev, ca-certificates, automake1.9, autoconf
 Standards-Version: 3.7.2
 
 Package: alpine
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Text-based email client, friendly for novices but powerful
  Alpine is an upgrade of the well-known PINE email client.  Alpine is currently
  in alpha.  Its name derives from the use of the Apache License and its ties to
@@ -20,7 +20,7 @@ Description: Text-based email client, friendly for novices but powerful
 
 Package: alpine-pico
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: nano
 Description: Simple text editor from Alpine, a text-based email client
  "pico" is a simple but powerful text editor.  It was originally the pine
