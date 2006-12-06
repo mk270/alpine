@@ -62,7 +62,7 @@ install-arch:
 	dh_clean -k -s 
 	dh_installdirs -s
 	$(MAKE) DESTDIR=$(CURDIR)/debian/alpine install
-	dh_link $(CURDIR)/debian/alpine/usr/bin/alpine $(CURDIR)/debian/alpine/usr/bin/pine
+	(cd $(CURDIR)/debian/alpine/usr/bin; ln -s alpine pine)
 	cp $(CURDIR)/doc/rpload.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 	cp $(CURDIR)/doc/rpdump.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 	mkdir -p $(CURDIR)/debian/alpine-pico/usr/bin/
