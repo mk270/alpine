@@ -20,7 +20,10 @@ endif
 
 config.status: autotools configure
 	dh_testdir
-	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" --with-krb5
+	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" --with-krb5 \
+	--with-system-pinerc=/etc/pine.conf \
+	--with-system-fixed-pinerc-/etc/pinerc.fixed \
+	
 
 autotools:
 	OLDDATESUB=`./config.sub -t | tr -d -` ;\
