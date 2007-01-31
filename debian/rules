@@ -1,0 +1,98 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+config.status: autotools configure
+	dh_testdir
+	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" --with-krb5
+
+autotools:
+	OLDDATESUB=`./config.sub -t | tr -d -` ;\
+	OLDDATEGUESS=`./config.guess -t | tr -d -` ;\
+	NEWDATESUB=`/usr/share/misc/config.sub -t | tr -d -` ;\
+	NEWDATEGUESS=`/usr/share/misc/config.guess -t | tr -d -` ;\
+	if [ $$OLDDATESUB -lt $$NEWDATESUB -o \
+	     $$OLDDATEGUESS -lt $$NEWDATEGUESS ]; then \
+	   cp -f /usr/share/misc/config.sub config.sub ;\
+	   cp -f /usr/share/misc/config.guess config.guess ;\
+	   echo WARNING: GNU config scripts updated from master copies 1>&2 ;\
+	fi
+
+#Architecture 
+build: build-arch
+
+build-arch: build-arch-stamp
+build-arch-stamp:  config.status
+	touch $@
+
+clean: autotools
+	dh_testdir
+	dh_testroot
+	rm -f build-arch-stamp #CONFIGURE-STAMP#
+	-$(MAKE) distclean
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	cp -f /usr/share/misc/config.sub config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	cp -f /usr/share/misc/config.guess config.guess
+endif
+	dh_clean 
+
+install: autotools install-arch
+
+install-arch:
+	dh_testdir
+	dh_testroot
+	dh_clean -k -s 
+	dh_installdirs -s
+	$(MAKE) DESTDIR=$(CURDIR)/debian/alpine install
+	cp $(CURDIR)/doc/rpload.1 $(CURDIR)/debian/alpine/usr/share/man/man1
+	cp $(CURDIR)/doc/rpdump.1 $(CURDIR)/debian/alpine/usr/share/man/man1
+	mkdir -p $(CURDIR)/debian/alpine-pico/usr/bin/
+	mkdir -p $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
+	mv $(CURDIR)/debian/alpine/usr/bin/pico $(CURDIR)/debian/alpine-pico/usr/bin/
+	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pico.1 $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
+	dh_install -s
+
+binary-common:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress 
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture dependant packages using the common target.
+binary-arch: build-arch install-arch
+	$(MAKE) -f debian/rules DH_OPTIONS=-s binary-common
+
+binary-indep:
+	
+
+binary: binary-arch
+.PHONY: build clean binary-arch binary install install-arch 

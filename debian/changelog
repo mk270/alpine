@@ -1,0 +1,13 @@
+alpine (0.81+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+  * Repacked original tarball because it included non-DFSG-free RFC files.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 20 Dec 2006 09:08:59 -0500
+
+alpine (0.8-1) unstable; urgency=low
+
+  * Initial release. (Closes: #401001)
+  * Changed imap/Makefile to enable IPv6 mode and skip the interactive prompt.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 29 Nov 2006 22:56:28 -0500
