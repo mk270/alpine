@@ -1,4 +1,0 @@
-AuthType UWNetID
-AuthName "Webpine"
-PubcookieAppId "Webpine"
-require valid-user

@@ -1,2 +1,0 @@
-set versionFull @CGI_VERSION_FULL@
-set version @CGI_VERSION@

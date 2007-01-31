@@ -1,6 +1,0 @@
-alpine (0.8-1) unstable; urgency=low
-
-  * Initial release. (Closes: #401001)
-  * Changed imap/Makefile to enable IPv6 mode and skip the interactive prompt.
-
- -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 29 Nov 2006 22:56:28 -0500
