@@ -4152,11 +4152,11 @@ General Configuration Variables
           relative to your home directory).
           Now for an example:
           
-     url-viewers=_TEST("test -n '${DISPLAY}'")_ /usr/bin/netscape,
+     url-viewers=_TEST("test -n '${DISPLAY}'")_ /usr/bin/sensible-browser,
      /usr/bin/lynx, C:\BIN\NETSCAPE.BAT
           This example shows that for the first browser in the list to be
           used the environment variable DISPLAY must be defined. If it
-          is, then the file /usr/bin/netscape must exist. If either
+          is, then the file /usr/bin/sensible-browser must exist. If either
           condition is not met, then the file /usr/bin/lynx must
           exist. If it doesn't, then the final path and file must exist.
           Note that the last entry is a DOS/Windows path. This is one way

@@ -3554,14 +3554,14 @@ Now for an example:
 
 <BLOCKQUOTE>
     <CODE>
-    url-viewers=_TEST("test -n '$&#123;DISPLAY}'")_  /usr/bin/netscape,
+    url-viewers=_TEST("test -n '$&#123;DISPLAY}'")_  /usr/bin/sensible-browser,
 		/usr/bin/lynx,
 		C:&#92;BIN&#92;NETSCAPE.BAT </CODE><BR>
 </BLOCKQUOTE>
 
 This example shows that for the first browser in the list to be used the
 environment variable <CODE>DISPLAY</CODE> must be defined.
-If it is, then the file <CODE>/usr/bin/netscape</CODE> must exist.
+If it is, then the file <CODE>/usr/bin/sensible-browser</CODE> must exist.
 If either condition is not met, then the file
 <CODE>/usr/bin/lynx</CODE> must exist.
 If it doesn't, then the final path and file must
