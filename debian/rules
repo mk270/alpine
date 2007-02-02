@@ -72,6 +72,8 @@ install-arch:
 	mv $(CURDIR)/debian/alpine/usr/bin/pico $(CURDIR)/debian/alpine-pico/usr/bin/
 	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pico.1 $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
 	dh_install -s
+	dh_link usr/share/man/man1/alpine.1.gz usr/share/man/man1/alpinef.1.gz
+	dh_link usr/bin/alpine usr/bin/alpinef
 
 binary-common:
 	dh_testdir
