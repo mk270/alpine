@@ -80,11 +80,11 @@ install-arch:
 	mv $(CURDIR)/debian/alpine/usr/bin/pico $(CURDIR)/debian/alpine-pico/usr/bin/
 	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pico.1 $(CURDIR)/debian/alpine-pico/usr/share/man/man1/
 
-	# Alpine-pilot
-	mkdir -p $(CURDIR)/debian/alpine-pilot/usr/bin/
-	mkdir -p $(CURDIR)/debian/alpine-pilot/usr/share/man/man1/
-	mv $(CURDIR)/debian/alpine/usr/bin/pilot $(CURDIR)/debian/alpine-pico/usr/bin/
-	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pilot.1 $(CURDIR)/debian/alpine-pilot/usr/share/man/man1/
+	# pilot
+	mkdir -p $(CURDIR)/debian/pilot/usr/bin/
+	mkdir -p $(CURDIR)/debian/pilot/usr/share/man/man1/
+	mv $(CURDIR)/debian/alpine/usr/bin/pilot $(CURDIR)/debian/pilot/usr/bin/
+	mv $(CURDIR)/debian/alpine/usr/share/man/man1/pilot.1 $(CURDIR)/debian/pilot/usr/share/man/man1/
 
 	# For everyone...
 	dh_install -s

@@ -34,7 +34,7 @@ Description: Simple text editor from Alpine, a text-based email client
  .
   Homepage: http://www.washington.edu/alpine/
 
-Package: alpine-pilot
+Package: pilot
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: pilot
