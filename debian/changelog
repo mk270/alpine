@@ -1,6 +1,10 @@
-alpine (0.82+dfsg-1) UNRELEASED; urgency=low
+alpine (0.82+dfsg-1) unstable; urgency=low
 
-  * (NOT RELEASED YET) New upstream release
+  * Configuration files are now in /etc, and the documentation is updated.
+    (Closes: #405700)
+  * debian/rules now cleans correctly. (Closes: #407477)
+  * alpinef symlink in place. (Closes: #405690)
+  * alpine-pilot package now created for pilot. (Closes: #405693)
 
  -- Asheesh Laroia <paulproteus@alchemy>  Wed, 31 Jan 2007 14:09:56 -0500
 
