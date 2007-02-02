@@ -6,7 +6,7 @@ alpine (0.82+dfsg-1) unstable; urgency=low
   * alpinef symlink in place. (Closes: #405690)
   * alpine-pilot package now created for pilot. (Closes: #405693)
 
- -- Asheesh Laroia <paulproteus@alchemy>  Wed, 31 Jan 2007 14:09:56 -0500
+ -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 31 Jan 2007 14:09:56 -0500
 
 alpine (0.81+dfsg-1) unstable; urgency=low
 
