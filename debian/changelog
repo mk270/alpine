@@ -1,3 +1,9 @@
+alpine (0.82+dfsg-3) unstable; urgency=low
+
+  * Make pilot not conflict: pilot.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sat,  3 Feb 2007 02:09:25 -0500
+
 alpine (0.82+dfsg-2) unstable; urgency=low
 
   * Renamed alpine-pilot to pilot as was actually wanted.
