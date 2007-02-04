@@ -21,6 +21,8 @@ Description: Text-based email client, friendly for novices but powerful
 Package: alpine-pico
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: editors
+Priority: extra
 Conflicts: nano
 Description: Simple text editor from Alpine, a text-based email client
  "pico" is a simple but powerful text editor.  It was originally the pine
@@ -36,6 +38,8 @@ Description: Simple text editor from Alpine, a text-based email client
 
 Package: pilot
 Architecture: any
+Section: utils
+Priority: extra
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple file browser from Alpine, a text-based email client
  "pilot" is a simple file browser from Alpine.  It is used in Alpine to
