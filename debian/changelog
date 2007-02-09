@@ -1,4 +1,4 @@
-alpine (0.82+dfsg-4) UNRELEASED; urgency=low
+alpine (0.82+dfsg-3+ubuntu0) unstable; urgency=low
 
   * Give pico the "mail - optional" and pilot the "utils - optional" suite.
 
