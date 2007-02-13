@@ -1,6 +1,7 @@
-alpine (0.82+dfsg-3+ubuntu0) unstable; urgency=low
+alpine (0.82+dfsg-4) unstable; urgency=low
 
   * Give pico the "mail - optional" and pilot the "utils - optional" suite.
+  * Disable debug in alpine configure. (Closes: #405689)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sat,  3 Feb 2007 02:33:32 -0500
 
