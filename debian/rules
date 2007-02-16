@@ -24,7 +24,8 @@ config.status: autotools configure
 	--with-system-pinerc=/etc/pine.conf \
 	--with-system-fixed-pinerc=/etc/pinerc.fixed \
 	--disable-debug \
-	
+	--with-spellcheck-prog=aspell \
+
 
 autotools:
 	OLDDATESUB=`./config.sub -t | tr -d -` ;\

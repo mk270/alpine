@@ -2,8 +2,9 @@ alpine (0.82+dfsg-4) unstable; urgency=low
 
   * Give pico the "mail - optional" and pilot the "utils - optional" suite.
   * Disable debug in alpine configure. (Closes: #405689)
+  * Enabled aspell as spellchecker
 
- -- Asheesh Laroia <asheesh@asheesh.org>  Sat,  3 Feb 2007 02:33:32 -0500
+ -- Asheesh Laroia <paulproteus@alchemy>  Fri, 16 Feb 2007 15:07:14 -0500
 
 alpine (0.82+dfsg-3) unstable; urgency=low
 
