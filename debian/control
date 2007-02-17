@@ -40,7 +40,7 @@ Description: Simple text editor from Alpine, a text-based email client
 Package: pilot
 Architecture: any
 Section: utils
-Priority: extra
+Priority: optional
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple file browser from Alpine, a text-based email client
  "pilot" is a simple file browser from Alpine.  It is used in Alpine to

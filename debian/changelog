@@ -1,3 +1,9 @@
+alpine (0.82+dfsg-5) unstable; urgency=low
+
+  * Actually make pilot "priority: optional".
+
+ -- Asheesh Laroia <asheesh@@asheesh.org>  Sat, 17 Feb 2007 13:17:42 -0500
+
 alpine (0.82+dfsg-4) unstable; urgency=low
 
   * Give pico the "mail - optional" and pilot the "utils - optional" suite.
