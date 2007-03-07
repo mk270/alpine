@@ -11,7 +11,6 @@ DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
 # This allows debug symbols to be saved for use by end-users
-DEB_DH_STRIP_ARGS  := --dbg-package=alpine-dbg
 
 CFLAGS = -Wall -g
 
@@ -112,7 +111,7 @@ binary-common:
 	dh_installdocs
 	dh_installman
 	dh_link
-	dh_strip
+	dh_strip --dbg-package=alpine-dbg
 	dh_compress 
 	dh_fixperms
 	dh_makeshlibs
