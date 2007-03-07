@@ -3,6 +3,7 @@ alpine (0.83+dfsg-1) unstable; urgency=low
   * New upstream release
   * Now sed handles updating source for path changes
   * Supports passfile of ~/.alpine-passfile (Closes: #410976)
+  * Upstream fixed man page to remove -create_lu (Closes: #410302)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Fri,  2 Mar 2007 17:53:35 -0500
 
