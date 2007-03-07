@@ -59,13 +59,13 @@ ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 endif
 
 	# Debianize paths in .c files and documentation
-	sed -i 's|/usr/spool/mail|/var/spool/mail|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
-	sed -i 's|/usr/spool/news|/var/spool/news|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
-	sed -i 's|/usr/spool/folders/|/var/spool/folders/|g' imap/docs/imaprc.txt
-	echo "Yes, please build with IPv6." > imap/ip6
-	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c 
-	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
-	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
+#	sed -i 's|/usr/spool/mail|/var/spool/mail|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
+#	sed -i 's|/usr/spool/news|/var/spool/news|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
+#	sed -i 's|/usr/spool/folders/|/var/spool/folders/|g' imap/docs/imaprc.txt
+#	echo "Yes, please build with IPv6." > imap/ip6
+#	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c 
+#	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
+#	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
 
 	dh_clean 
 
