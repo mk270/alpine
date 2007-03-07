@@ -25,6 +25,7 @@ config.status: autotools configure
 	--with-system-fixed-pinerc=/etc/pinerc.fixed \
 	--disable-debug \
 	--with-spellcheck-prog=aspell \
+	--with-passfile=.alpine-passwd \
 
 
 autotools:
