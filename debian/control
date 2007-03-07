@@ -23,7 +23,7 @@ Package: alpine-dbg
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: aspell
-Description: Text-based email client, with debugging enabled
+Description: Text-based email client's debugging symbols
  Alpine is an upgrade of the well-known PINE email client.  Alpine is currently
  in alpha.  Its name derives from the use of the Apache License and its ties to
  PINE.
@@ -31,7 +31,7 @@ Description: Text-based email client, with debugging enabled
  It features a full suite of support for mail protocols like IMAP and SMTP and
  security protocols like TLS.  It uses curses for its interface.
  .
- This build has debugging support, including unstripped binaries.
+ This build stores the debugging symbols to the alpine package.
  .
   Homepage: http://www.washington.edu/alpine/
 
