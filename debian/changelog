@@ -1,8 +1,9 @@
-alpine (0.83+dfsg-1) UNRELEASED; urgency=low
+alpine (0.83+dfsg-1) unstable; urgency=low
 
   * New upstream release
+  * Now sed handles updating source for path changes
 
- -- Asheesh Laroia <paulproteus@asheesh.org>  Fri,  2 Mar 2007 17:53:35 -0500
+ -- Asheesh Laroia <asheesh@asheesh.org>  Fri,  2 Mar 2007 17:53:35 -0500
 
 alpine (0.82+dfsg-5) unstable; urgency=low
 
