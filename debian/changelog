@@ -1,6 +1,7 @@
 alpine (0.83+dfsg-2) unstable; urgency=low
 
   * Adding -dbg packages.
+  * Adding fix for address book sorting (Closes: #410300)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 07 Mar 2007 11:11:50 -0500
 
