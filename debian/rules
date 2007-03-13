@@ -25,9 +25,9 @@ config.status: autotools configure
 	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" --with-krb5 \
 	--with-system-pinerc=/etc/pine.conf \
 	--with-system-fixed-pinerc=/etc/pinerc.fixed \
-	--disable-debug \
+	--with-debug-level=0 \
 	--with-spellcheck-prog=aspell \
-	--with-passfile=.alpine-passwd \
+	--with-passfile=.pine-passfile \
 
 
 autotools:
@@ -41,6 +41,7 @@ autotools:
 	   cp -f /usr/share/misc/config.guess config.guess ;\
 	   echo WARNING: GNU config scripts updated from master copies 1>&2 ;\
 	fi
+	autoconf
 
 #Architecture 
 build: build-arch

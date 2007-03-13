@@ -1,7 +1,12 @@
 alpine (0.83+dfsg-2) unstable; urgency=low
 
-  * Adding -dbg packages.
-  * Adding fix for address book sorting (Closes: #410300)
+  * Adds -dbg packages; bumped compat/ to 5 for dh_strip feature.
+  * Uses --with-debug-level=0 instead of entirely removing the 
+    feature.
+  * Fixes pinerc handling for address book sorting. (Closes: #410300)
+  * Supports GNU/kFreeBSD in configure.ac. (Closes: #414228)
+  * Renames passfile to ~/.pine-passfile in keeping with e.g. .pinerc.
+  * Documented that in README.Debian.
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 07 Mar 2007 11:11:50 -0500
 
