@@ -19,6 +19,23 @@ Description: Text-based email client, friendly for novices but powerful
  .
   Homepage: http://www.washington.edu/alpine/
 
+Package: alpine-dbg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: aspell
+Priority: extra
+Description: Text-based email client's debugging symbols
+ Alpine is an upgrade of the well-known PINE email client.  Alpine is currently
+ in alpha.  Its name derives from the use of the Apache License and its ties to
+ PINE.
+ .
+ It features a full suite of support for mail protocols like IMAP and SMTP and
+ security protocols like TLS.  It uses curses for its interface.
+ .
+ This build stores the debugging symbols to the alpine package.
+ .
+  Homepage: http://www.washington.edu/alpine/
+
 Package: alpine-pico
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}

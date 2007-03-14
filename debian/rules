@@ -112,7 +112,7 @@ binary-common:
 	dh_installdocs
 	dh_installman
 	dh_link
-	dh_strip
+	dh_strip --dbg-package=alpine-dbg
 	dh_compress 
 	dh_fixperms
 	dh_makeshlibs

@@ -1,3 +1,9 @@
+alpine (0.83+dfsg-3) unstable; urgency=low
+
+  * Adding -dbg package with debug symbols.
+
+ -- Asheesh Laroia <paulproteus@alchemy>  Wed, 14 Mar 2007 06:43:45 -0400
+
 alpine (0.83+dfsg-2) unstable; urgency=low
 
   * Bumped compat/ to 5 for future use of dh_strip.
