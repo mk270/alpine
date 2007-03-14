@@ -1,6 +1,6 @@
 alpine (0.83+dfsg-2) unstable; urgency=low
 
-  * Adds -dbg packages; bumped compat/ to 5 for dh_strip feature.
+  * Bumped compat/ to 5 for future use of dh_strip.
   * Uses --with-debug-level=0 instead of entirely removing the 
     feature.
   * Fixes pinerc handling for address book sorting. (Closes: #410300)
