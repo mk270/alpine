@@ -2,7 +2,7 @@ alpine (0.83+dfsg-3) unstable; urgency=low
 
   * Adding -dbg package with debug symbols.
 
- -- Asheesh Laroia <paulproteus@alchemy>  Wed, 14 Mar 2007 06:43:45 -0400
+ -- Asheesh Laroia <asheesh@asheesh.org>  Wed, 14 Mar 2007 06:43:45 -0400
 
 alpine (0.83+dfsg-2) unstable; urgency=low
 
