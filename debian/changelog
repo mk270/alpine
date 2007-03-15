@@ -1,3 +1,10 @@
+alpine (0.83+dfsg-4) unstable; urgency=low
+
+  * Added a note to README.Debian about sending mail, and Suggests:
+    mail-transport-agent. (Closes: #414266)
+
+ -- Asheesh Laroia <paulproteus@alchemy>  Thu, 15 Mar 2007 14:57:22 -0400
+
 alpine (0.83+dfsg-3) unstable; urgency=low
 
   * Adding -dbg package with debug symbols.
