@@ -67,18 +67,18 @@ endif
 	sed -i 's|/usr/spool/news|/var/spool/news|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
 	sed -i 's|/usr/spool/folders/|/var/spool/folders/|g' imap/docs/imaprc.txt
 	echo "Yes, please build with IPv6." > imap/ip6
-	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c 
+	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c
 	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
 	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
 
-	dh_clean 
+	dh_clean
 
 install: autotools install-arch
 
 install-arch:
 	dh_testdir
 	dh_testroot
-	dh_clean -k -s 
+	dh_clean -k -s
 	dh_installdirs -s
 	$(MAKE) DESTDIR=$(CURDIR)/debian/alpine install
 
@@ -108,12 +108,12 @@ install-arch:
 binary-common:
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs 
+	dh_installchangelogs
 	dh_installdocs
 	dh_installman
 	dh_link
 	dh_strip --dbg-package=alpine-dbg
-	dh_compress 
+	dh_compress
 	dh_fixperms
 	dh_makeshlibs
 	dh_installdeb
@@ -127,7 +127,7 @@ binary-arch: build-arch install-arch
 	$(MAKE) -f debian/rules DH_OPTIONS=-s binary-common
 
 binary-indep:
-	
+
 
 binary: binary-arch
-.PHONY: build clean binary-arch binary install install-arch 
+.PHONY: build clean binary-arch binary install install-arch
