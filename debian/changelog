@@ -1,7 +1,8 @@
-alpine (0.83+dfsg-4) unstable; urgency=low
+alpine (0.98-1) unstable; urgency=low
 
   * Added a note to README.Debian about sending mail, and Suggests:
     mail-transport-agent. (Closes: #414266)
+  * New upstream release.
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Thu, 15 Mar 2007 14:57:22 -0400
 
