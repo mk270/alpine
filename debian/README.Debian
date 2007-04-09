@@ -2,8 +2,8 @@ This file provides notes for users of the Alpine package.
 
 == Sending email ==
 
-By default, alpine doesn't know how to send email.  If your system is 
-configured with a working local mail transport agent, you can configure 
+By default, alpine doesn't know how to send email.  If your system is
+configured with a working local mail transport agent, you can configure
 PINE to do SMTP to localhost by pressing these keys:
 
 M (Main screen)
