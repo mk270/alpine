@@ -1,3 +1,9 @@
+alpine (0.99+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Thu, 03 May 2007 14:56:05 -0400
+
 alpine (0.98+dfsg-1) unstable; urgency=low
 
   * Added a note to README.Debian about sending mail, and Suggests:
