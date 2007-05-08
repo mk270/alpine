@@ -21,7 +21,7 @@ Description: Text-based email client, friendly for novices but powerful
 
 Package: alpine-dbg
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: alpine (= ${binary:Version}), alpine-pico (= ${binary:Version}), pilot (= ${binary:Version})
 Suggests: aspell
 Priority: extra
 Description: Text-based email client's debugging symbols
@@ -49,7 +49,7 @@ Description: Simple text editor from Alpine, a text-based email client
  It has gained popularity since its initial use in that context and is now used
  as a stand-alone editor by many users.
  .
- It is similar to but less powerful than GNU Nano, an editor created with the 
+ It is similar to but less powerful than GNU Nano, an editor created with the
  pico interface when the pico license was non-free.
  .
   Homepage: http://www.washington.edu/alpine/
