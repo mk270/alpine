@@ -1,3 +1,9 @@
+alpine (0.999+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 29 Jun 2007 01:59:10 -0400
+
 alpine (0.99+dfsg-1) unstable; urgency=low
 
   * New upstream release.
