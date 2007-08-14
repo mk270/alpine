@@ -21,7 +21,7 @@ Description: Text-based email client, friendly for novices but powerful
 
 Package: alpine-dbg
 Architecture: any
-Depends: alpine (= ${binary:Version}), alpine-pico (= ${binary:Version}), pilot (= ${binary:Version})
+Depends: alpine (= ${binary:Version}) | alpine-pico (= ${binary:Version}) | pilot (= ${binary:Version})
 Suggests: aspell
 Priority: extra
 Description: Text-based email client's debugging symbols
