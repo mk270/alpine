@@ -1,4 +1,4 @@
-alpine (0.9999+dfsg-1) UNRELEASED; urgency=low
+alpine (0.9999+dfsg-1) unstable; urgency=low
 
   * New upstream release
   * alpine-dbg only requires alpine | alpine-pico | pilot now.
