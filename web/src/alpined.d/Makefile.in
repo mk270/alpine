@@ -279,7 +279,7 @@ LDADD = local.o \
 	$(top_srcdir)/c-client/c-client.a \
 	$(WEB_PUBCOOKIE_LIB)
 
-loclib_LTLIBRARIES = libwpcomm.la
+loclib_LTLIBRARIES = # libwpcomm.la
 libwpcomm_la_SOURCES = wpcomm.c
 libwpcomm_la_LDFLAGS = -rpath '$(loclibdir)' -version-info 1:0:0
 AM_CPPFLAGS = -I$(top_builddir)/include -I$(top_srcdir)/include
