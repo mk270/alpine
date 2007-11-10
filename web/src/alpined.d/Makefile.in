@@ -44,7 +44,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-locbin_PROGRAMS = alpined$(EXEEXT) alpineldap$(EXEEXT)
+locbin_PROGRAMS = # alpined$(EXEEXT) alpineldap$(EXEEXT)
 subdir = web/src/alpined.d
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -262,8 +262,8 @@ top_srcdir = @top_srcdir@
 
 # This is because alpined, libwpcomm and friends are
 # not intended for system-wide consumption
-#locbindir = @abs_srcdir@/../../bin
-#loclibdir = @abs_srcdir@/../../lib
+locbindir = @abs_srcdir@/../../bin
+loclibdir = @abs_srcdir@/../../lib
 alpined_SOURCES = alpined.c busy.c color.c imap.c ldap.c remote.c \
 		  signal.c debug.c status.c stubs.c \
 		  alpined.h color.h ldap.h
