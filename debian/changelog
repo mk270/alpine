@@ -1,6 +1,8 @@
 alpine (0.999999+dfsg-1) unstable; urgency=low
 
   * New upstream release.
+  * Stop patching Makefiles and just pass an argument to configure (oops)
+  * Add DM-Upload-Allowed: yes to source section of control
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 07 Dec 2007 10:39:13 -0800
 
