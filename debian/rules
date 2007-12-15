@@ -29,6 +29,7 @@ config.status: autotools configure
 	--with-spellcheck-prog=aspell \
 	--without-tcl \
 	--with-passfile=.pine-passfile \
+	--with-smtp-msa=/usr/sbin/sendmail \
 
 
 autotools:
