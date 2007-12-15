@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
 Build-Depends: debhelper (>= 5), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev, autotools-dev, ca-certificates, automake1.9, autoconf, libtool, libkrb5-dev
 Standards-Version: 3.7.2
-DM-Upload-Allowed: yes
+XS-DM-Upload-Allowed: yes
 
 Package: alpine
 Architecture: any
