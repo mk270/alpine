@@ -1,3 +1,9 @@
+alpine (0.999999+dfsg-2) unstable; urgency=low
+
+  * Add a build-depends on libkrb5-dev (Closes: #455359)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sat, 15 Dec 2007 01:20:21 -0800
+
 alpine (0.999999+dfsg-1) unstable; urgency=low
 
   * New upstream release.
