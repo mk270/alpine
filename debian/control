@@ -3,8 +3,10 @@ Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
 Build-Depends: debhelper (>= 5), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev, autotools-dev, ca-certificates, automake1.9, autoconf, libtool, libkrb5-dev
-Standards-Version: 3.7.2
+Standards-Version: 3.7.3
 XS-DM-Upload-Allowed: yes
+Homepage: http://www.washington.edu/alpine/
+
 
 Package: alpine
 Architecture: any
@@ -17,8 +19,6 @@ Description: Text-based email client, friendly for novices but powerful
  .
  It features a full suite of support for mail protocols like IMAP and SMTP and
  security protocols like TLS.  It uses curses for its interface.
- .
-  Homepage: http://www.washington.edu/alpine/
 
 Package: alpine-dbg
 Architecture: any
@@ -34,8 +34,6 @@ Description: Text-based email client's debugging symbols
  security protocols like TLS.  It uses curses for its interface.
  .
  This build stores the debugging symbols to the alpine package.
- .
-  Homepage: http://www.washington.edu/alpine/
 
 Package: alpine-pico
 Architecture: any
@@ -52,8 +50,6 @@ Description: Simple text editor from Alpine, a text-based email client
  .
  It is similar to but less powerful than GNU Nano, an editor created with the
  pico interface when the pico license was non-free.
- .
-  Homepage: http://www.washington.edu/alpine/
 
 Package: pilot
 Architecture: any
@@ -67,5 +63,3 @@ Description: Simple file browser from Alpine, a text-based email client
  .
  As a stand-alone program, it is useful as a basic file browser, filling the
  same utility as programs like the midnight commander.
- .
-  Homepage: http://www.washington.edu/alpine/
