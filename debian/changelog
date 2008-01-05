@@ -1,3 +1,9 @@
+alpine (1.0+dfsg-2) unstable; urgency=low
+
+  * Trying to fix krb5.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sat, 05 Jan 2008 11:22:01 -0800
+
 alpine (1.0+dfsg-1) unstable; urgency=low
 
   * New upstream release. (Closes: #457327)

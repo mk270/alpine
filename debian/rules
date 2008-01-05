@@ -30,6 +30,7 @@ config.status: autotools configure
 	--without-tcl \
 	--with-passfile=.pine-passfile \
 	--with-smtp-msa=/usr/sbin/sendmail \
+    --with-krb5-dir=/usr \
 
 
 autotools:
