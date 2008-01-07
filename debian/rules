@@ -30,7 +30,7 @@ config.status: autotools configure
 	--without-tcl \
 	--with-passfile=.pine-passfile \
 	--with-smtp-msa=/usr/sbin/sendmail \
-    --with-krb5-dir=/usr \
+	--with-krb5-dir=/usr \
 
 
 autotools:
@@ -72,6 +72,7 @@ endif
 	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c
 	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
 	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
+	sed -i 's|/usr/sbin/mlock|/usr/bin/mlock|g' imap/src/osdep/unix/Makefile
 
 	dh_clean
 
