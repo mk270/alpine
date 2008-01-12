@@ -1,5 +1,6 @@
 alpine (1.0+dfsg-2) unstable; urgency=low
 
+  * Don't enable debug by default. (Closes: #459661)
   * Trying to fix krb5.
   * Using /usr/bin/mlock instead of /usr/sbin/mlock. (Closes: #451490)
   * Add patch to configure.ac that fixes arm-linux-gnueabi (Closes: #459830)
