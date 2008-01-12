@@ -577,7 +577,7 @@ if test "x$with_ssl" = "xno" ; then
 else
   dnl preload c-client default locations/options
   case $host in
-    *-linux-gnu)
+    *-linux-gnu*)
       if test -f /etc/fedora-release -o -f /etc/redhat-release -o -f /etc/redhat_version ; then  
         alpine_SSLTYPE="nopwd"
 	if test -d /etc/pki/tls ; then  
@@ -1232,7 +1232,7 @@ dnl Tests and assignments below are mostly to coax the appropriate
 dnl build from c-client.  Most of this will go away when c-client
 dnl adopts configure
 case "$host" in
-  *-linux-gnu)
+  *-linux-gnu*)
     alpine_path_delim="/"
     alpine_mode_readonly="(0600)"
     if test -f /etc/fedora-release ; then  
