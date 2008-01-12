@@ -93,6 +93,7 @@ install-arch:
 	# Install man pages
 	cp $(CURDIR)/doc/rpload.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 	cp $(CURDIR)/doc/rpdump.1 $(CURDIR)/debian/alpine/usr/share/man/man1
+	cp $(CURDIR)/imap/src/mailutil/mailutil.1 $(CURDIR)/debian/alpine/usr/share/man/man1
 
 	# Alpine-pico
 	mkdir -p $(CURDIR)/debian/alpine-pico/usr/bin/
