@@ -47,7 +47,6 @@ autotools:
 	   echo WARNING: GNU config scripts updated from master copies 1>&2 ;\
 	fi
 	autoconf
-	sed -i 's|^LIBS = @LIBS@$$|LIBS = @LIBS@ -lpam|' alpine/Makefile.in # Fix for c-client PAM oddities
 
 
 #Architecture 
