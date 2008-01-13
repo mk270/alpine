@@ -1,5 +1,6 @@
 alpine (1.0+dfsg-2) unstable; urgency=low
 
+  * Link with libraries as needed. (Closes: 460327)
   * Include mailutil binary also. (Closes: #459920)
   * Don't enable debug by default. (Closes: #459661)
   * Trying to fix krb5.
