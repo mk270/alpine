@@ -22,7 +22,7 @@ endif
 
 config.status: autotools configure
 	dh_testdir
-	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs --as-needed" --with-krb5 \
+	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs,--as-needed" --with-krb5 \
 	--with-system-pinerc=/etc/pine.conf \
 	--with-system-fixed-pinerc=/etc/pinerc.fixed \
 	--with-debug-level=0 \
@@ -31,6 +31,8 @@ config.status: autotools configure
 	--with-passfile=.pine-passfile \
 	--with-smtp-msa=/usr/sbin/sendmail \
 	--with-krb5-dir=/usr \
+	
+	
 
 
 autotools:
@@ -45,6 +47,8 @@ autotools:
 	   echo WARNING: GNU config scripts updated from master copies 1>&2 ;\
 	fi
 	autoconf
+	sed -i 's|^LIBS = @LIBS@$$|LIBS = @LIBS@ -lpam|' alpine/Makefile.in # Fix for c-client PAM oddities
+
 
 #Architecture 
 build: build-arch
