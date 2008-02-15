@@ -1,3 +1,10 @@
+alpine (1.0+dfsg-4) unstable; urgency=low
+
+  * Adding patch from upstream configure.ac to fix krb5;
+    thanks to Per Olofsson for the clean patch (Closes: #455359)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 15 Feb 2008 14:21:41 -0800
+
 alpine (1.0+dfsg-3) unstable; urgency=low
 
   * Resolved serious conflict with uw-mailutil. (Closes: #460695)
