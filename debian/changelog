@@ -1,3 +1,10 @@
+alpine (1.10+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+  * Removed configure.ac patch because upstream fixed krb5.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 17 Mar 2008 22:13:21 -0700
+
 alpine (1.0+dfsg-4) unstable; urgency=low
 
   * Adding patch from upstream configure.ac to fix krb5;
