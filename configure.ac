@@ -1263,7 +1263,7 @@ dnl Tests and assignments below are mostly to coax the appropriate
 dnl build from c-client.  Most of this will go away when c-client
 dnl adopts configure
 case "$host" in
-  *-linux-gnu)
+  *-linux-gnu*)
     alpine_path_delim="/"
     alpine_mode_readonly="(0600)"
     if test -f /etc/fedora-release ; then  
