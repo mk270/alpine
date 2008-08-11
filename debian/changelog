@@ -1,3 +1,10 @@
+alpine (1.10+dfsg-4) unstable; urgency=low
+
+  * Er, re-adding patch for kFreeBSD (which got included in upstream).
+    (Closes: #494314)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 11 Aug 2008 02:29:12 -0300
+
 alpine (1.10+dfsg-3) unstable; urgency=low
 
   * Er, re-re-add patch to configure.ac for arm gnueabi (Closes: #471519)
