@@ -1,3 +1,9 @@
+alpine (2.00+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 01 Sep 2008 12:17:55 -0700
+
 alpine (1.10+dfsg-4) unstable; urgency=low
 
   * Er, re-adding patch for kFreeBSD (which got included in upstream).
