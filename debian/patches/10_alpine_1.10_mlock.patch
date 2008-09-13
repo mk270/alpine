@@ -1,0 +1,11 @@
+--- alpine-2.00.orig/imap/src/osdep/unix/Makefile
++++ alpine-2.00/imap/src/osdep/unix/Makefile
+@@ -106,7 +106,7 @@
+ LOCKPGM=
+ # Test alternatives if LOCKPGM not specified
+ LOCKPGM1=/usr/libexec/mlock
+-LOCKPGM2=/usr/sbin/mlock
++LOCKPGM2=/usr/bin/mlock
+ LOCKPGM3=/etc/mlock
+ 
+ 

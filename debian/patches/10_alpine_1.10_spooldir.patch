@@ -1,0 +1,60 @@
+--- alpine-2.00.orig/imap/docs/imaprc.txt
++++ alpine-2.00/imap/docs/imaprc.txt
+@@ -168,8 +168,8 @@
+    Sets the directory in which the user's data can be found.  A user's
+    folders can be found in a subdirectory of the black box directory
+    named with the user's username.  For example, if the blackbox
+-   directory is /usr/spool/folders/, user jones' data can be found
+-   in /usr/spool/folders/jones/.  The user's black-box directory is
++   directory is /var/spool/folders/, user jones' data can be found
++   in /var/spool/folders/jones/.  The user's black-box directory is
+    the location of folders, .mminit, .imaprc, .newsrc, and all other
+    files used by c-client; internally, it sets c-client's idea of the
+    user's ``home directory'', overriding /etc/passwd.
+@@ -411,14 +411,14 @@
+     If non-zero, a warning message is given if an attempt to create a
+     lock file fails.  Otherwise, EACCES is treated as a "silent failure",
+     and it proceeds without trying to use the lock file.  This is for
+-    the benefit of users on systems with paranoid /usr/spool/mail
+-    protections which don't let users create /usr/spool/mail/$(USER).lock
++    the benefit of users on systems with paranoid /var/spool/mail
++    protections which don't let users create /var/spool/mail/$(USER).lock
+     files; these unfortunate users would be harassed with a flood of
+     error messages otherwise.  The problem is that on SVR4, if EACCES
+     remains disabled and fcntl() locking is also disabled, then there is
+     no locking at all which is doubleplus-ungood.
+ 
+-    If the site is paranoid on /usr/spool/mail protections AND if there
++    If the site is paranoid on /var/spool/mail protections AND if there
+     is no fcntl() locking (SVR4) or usable flock() locking (e.g. NFS),
+     then there is no way to win.  Find a different system to use.
+ 
+--- alpine-2.00.orig/imap/docs/locking.txt
++++ alpine-2.00/imap/docs/locking.txt
+@@ -255,7 +255,7 @@
+ timeout for this lock, after which it is broken on the presumption
+ that it is a stale lock.  If it can not create the .lock file due to
+ an EACCES (protection failure) error, it once silently proceeded
+-without this lock; this was for systems which protect /usr/spool/mail
++without this lock; this was for systems which protect /var/spool/mail
+ from unprivileged processes creating files.  Today, c-client reports
+ an error unless it is built otherwise.  The purpose of this lock is to
+ prevent against unfavorable interactions with mail delivery.
+@@ -278,7 +278,7 @@
+ 
+      Mail delivery daemons use lock (1), (2), or both.  Lock (1) works
+ over NFS; lock (2) is the only one that works on sites that protect
+-/usr/spool/mail against unprivileged file creation.  Prudent mail
++/var/spool/mail against unprivileged file creation.  Prudent mail
+ delivery daemons use both forms of locking, and of course so does
+ c-client.
+ 
+@@ -335,7 +335,7 @@
+ the mail file is NFS-mounted.
+ 
+      What this means is that there is *no* locking protection at all
+-in the case of a client using an NFS-mounted /usr/spool/mail that does
++in the case of a client using an NFS-mounted /var/spool/mail that does
+ not permit file creation by unprivileged programs.  It is impossible,
+ under these circumstances, for an unprivileged program to do anything
+ about it.  Worse, if EACCES errors on .lock file creation are no-op'ed
