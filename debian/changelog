@@ -8,6 +8,8 @@ alpine (2.0-1) UNRELEASED; urgency=low
   * Replaced explicite mentioning Apache license in copyright
     by hint to /usr/share/common-licenses/Apache-2.0 and
     added copyright of packaging stuff
+  * Use cdbs and debhelper files instead of moving files
+    manually in debian/rules
 
  -- Andreas Tille <tille@debian.org>  Fri, 12 Sep 2008 08:06:37 +0200
 

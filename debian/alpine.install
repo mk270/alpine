@@ -1,0 +1,3 @@
+alpine/alpine  usr/bin
+alpine/rpdump  usr/bin
+alpine/rpload  usr/bin
