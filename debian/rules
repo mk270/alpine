@@ -10,6 +10,9 @@ export DH_OPTIONS
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
+# Make use of quilt
+include /usr/share/quilt/quilt.make
+
 # This allows debug symbols to be saved for use by end-users
 
 CFLAGS = -Wall -g
@@ -20,7 +23,7 @@ else
 	CFLAGS += -O2
 endif
 
-config.status: autotools configure
+config.status: patch autotools configure
 	dh_testdir
 	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs,--as-needed" --with-krb5 \
 	--with-system-pinerc=/etc/pine.conf \
@@ -56,7 +59,8 @@ build-arch: build-arch-stamp
 build-arch-stamp:  config.status
 	touch $@
 
-clean: autotools
+clean: clean-patched unpatch
+clean-patched: autotools
 	dh_testdir
 	dh_testroot
 	rm -f build-arch-stamp #CONFIGURE-STAMP#
@@ -69,13 +73,13 @@ ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 endif
 
 	# Debianize paths in .c files and documentation
-	sed -i 's|/usr/spool/mail|/var/spool/mail|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
-	sed -i 's|/usr/spool/news|/var/spool/news|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
-	sed -i 's|/usr/spool/folders/|/var/spool/folders/|g' imap/docs/imaprc.txt
-	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c
-	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
-	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
-	sed -i 's|/usr/sbin/mlock|/usr/bin/mlock|g' imap/src/osdep/unix/Makefile
+#	sed -i 's|/usr/spool/mail|/var/spool/mail|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
+#	sed -i 's|/usr/spool/news|/var/spool/news|g' imap/docs/locking.txt doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes.txt
+#	sed -i 's|/usr/spool/folders/|/var/spool/folders/|g' imap/docs/imaprc.txt
+#	sed -i 's|/usr/local/lib/pine.conf|/etc/pine.conf|g' doc/tech-notes/config-notes.html doc/tech-notes/cmd-line.html doc/tech-notes/porting.html doc/tech-notes/installation.html doc/tech-notes/low-level.html doc/tech-notes/config.html doc/tech-notes/background.html doc/tech-notes.txt pith/filter.c
+#	sed -i 's|/usr/local/bin/netscape|/usr/bin/sensible-browser|g' doc/tech-notes.txt
+#	sed -i 's|/usr/local/bin/lynx|/usr/bin/lynx|g' doc/tech-notes.txt
+#	sed -i 's|/usr/sbin/mlock|/usr/bin/mlock|g' imap/src/osdep/unix/Makefile
 
 	dh_clean
 

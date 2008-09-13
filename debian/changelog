@@ -1,8 +1,15 @@
-alpine (2.00+dfsg-1) unstable; urgency=low
+alpine (2.0-1) UNRELEASED; urgency=low
 
-  * New upstream release.
+  [ Andreas Tille ]
+  * New upstream version
+  * Use quilt to apply patches
+  * Standards-Version: 3.8.0 (no changes needed)
+  * Added Vcs fields for collab-maint svn at alioth
+  * Replaced explicite mentioning Apache license in copyright
+    by hint to /usr/share/common-licenses/Apache-2.0 and
+    added copyright of packaging stuff
 
- -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 01 Sep 2008 12:17:55 -0700
+ -- Andreas Tille <tille@debian.org>  Fri, 12 Sep 2008 08:06:37 +0200
 
 alpine (1.10+dfsg-4) unstable; urgency=low
 

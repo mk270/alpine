@@ -2,12 +2,15 @@ Source: alpine
 Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
-Build-Depends: debhelper (>= 5), libldap2-dev, libpam-dev, libncurses-dev, libssl-dev, autotools-dev, ca-certificates, automake1.9, autoconf, libtool, libkrb5-dev
-Standards-Version: 3.7.3
-XS-DM-Upload-Allowed: yes
+Uploaders: Andreas Tille <tille@debian.org>
+Build-Depends: debhelper (>= 5), libldap2-dev, libpam0g-dev, libncurses-dev, \
+ libssl-dev, autotools-dev, ca-certificates, automake, autoconf, libtool, libkrb5-dev, \
+ quilt
+Standards-Version: 3.8.0
 DM-Upload-Allowed: yes
+Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/ext-maint/alpine/trunk/?rev=0&sc=0
+Vcs-Svn: svn://svn.debian.org/svn/collab-maint/ext-maint/alpine/trunk/
 Homepage: http://www.washington.edu/alpine/
-
 
 Package: alpine
 Architecture: any
