@@ -1,4 +1,4 @@
-alpine (2.0-1) UNRELEASED; urgency=low
+alpine (2.00-1) UNRELEASED; urgency=low
 
   [ Andreas Tille ]
   * New upstream version
@@ -10,8 +10,10 @@ alpine (2.0-1) UNRELEASED; urgency=low
     added copyright of packaging stuff
   * Use cdbs and debhelper files instead of moving files
     manually in debian/rules
+  [ Asheesh Laroia ]
+  * Bumped version number to 2.00
 
- -- Andreas Tille <tille@debian.org>  Fri, 12 Sep 2008 08:06:37 +0200
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 14 Sep 2008 14:09:17 -0700
 
 alpine (1.10+dfsg-4) unstable; urgency=low
 
