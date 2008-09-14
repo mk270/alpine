@@ -1,17 +1,18 @@
-alpine (2.00+dfsg-1) UNRELEASED; urgency=low
+alpine (2.00+dfsg-1) unstable; urgency=low
 
   [ Andreas Tille ]
   * New upstream version
   * Use quilt to apply patches
   * Standards-Version: 3.8.0 (no changes needed)
   * Added Vcs fields for collab-maint svn at alioth
-  * Replaced explicite mentioning Apache license in copyright
+  * Replaced explicit mentioning Apache license in copyright
     by hint to /usr/share/common-licenses/Apache-2.0 and
     added copyright of packaging stuff
   * Use cdbs and debhelper files instead of moving files
     manually in debian/rules
   [ Asheesh Laroia ]
   * Bumped version number to 2.00+dfsg
+  * Minimized alpine/Makefile.in patch
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 14 Sep 2008 14:09:17 -0700
 
