@@ -1,4 +1,4 @@
-alpine (2.00-1) UNRELEASED; urgency=low
+alpine (2.00+dfsg-1) UNRELEASED; urgency=low
 
   [ Andreas Tille ]
   * New upstream version
@@ -11,7 +11,7 @@ alpine (2.00-1) UNRELEASED; urgency=low
   * Use cdbs and debhelper files instead of moving files
     manually in debian/rules
   [ Asheesh Laroia ]
-  * Bumped version number to 2.00
+  * Bumped version number to 2.00+dfsg
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 14 Sep 2008 14:09:17 -0700
 
