@@ -1,7 +1,7 @@
 alpine (2.00+dfsg-2) unstable; urgency=low
 
-  * Trivial fix to package descriptions so that they do not
-    run over eighty columns.
+  * Update to package description: note that Alpine is no longer in
+    alpha. (Closes: #499640)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Tue, 23 Sep 2008 12:17:56 -0700
 
