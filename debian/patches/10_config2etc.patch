@@ -334,3 +334,76 @@ Some more fixes in the doc according the move /usr/spool/news -> /var/spool/news
  .br
  /tmp/.\\usr\\spool\\mail\\xxxx	Per-folder mailbox lock files.
  .br
+--- alpine-2.00.orig/README	2008-03-14 16:53:39.674727886 -0700
++++ alpine-2.00/README	2009-04-13 17:42:54.961359479 -0700
+@@ -107,7 +107,7 @@
+         your system with no other files than this binary, and no
+         modifications to your system. Optionally you may create two
+         configuration files, /usr/local/lib/pine.conf and 
+-        /usr/local/lib/pine.info. See the documentation for details.
++        /etc/pine.info. See the documentation for details.
+  
+  pico   The standalone editor similar to the Alpine message composer.
+         This is a very simple straight forward text editor.
+--- alpine-2.00.orig/doc/tech-notes/installation.html	2008-06-17 10:48:13.000000000 -0700
++++ alpine-2.00/doc/tech-notes/installation.html	2009-04-13 17:42:54.973342358 -0700
+@@ -226,7 +226,7 @@
+ them. <P>
+ 
+ There are three optional auxiliary files: 
+-<CODE>/usr/local/lib/pine.info</CODE>,
++<CODE>/etc/pine.info</CODE>,
+ <CODE>/usr/local/lib/pine.conf</CODE>, and
+ <CODE>/usr/local/lib/pine.conf.fixed</CODE>.  The file
+ <CODE>pine.info</CODE> contains text on how to get further help on the
+@@ -326,7 +326,7 @@
+ 
+ <DD> Non-overridable global configuration file. 
+ 
+-<DT> /usr/local/lib/pine.info
++<DT> /etc/pine.info
+ 
+ <DD> Local pointer to system administrator. 
+ 
+--- alpine-2.00.orig/doc/alpine.1	2008-08-22 13:40:16.000000000 -0700
++++ alpine-2.00/doc/alpine.1	2009-04-13 17:42:54.981343026 -0700
+@@ -305,7 +305,7 @@
+ .br
+ /etc/mime.types	System-wide file ext. to MIME type mapping
+ .br
+-/usr/local/lib/pine.info	Local pointer to system administrator.
++/etc/pine.info	Local pointer to system administrator.
+ .br
+ /usr/local/lib/pine.conf	System-wide configuration file.
+ .br
+--- alpine-2.00.orig/doc/tech-notes.txt	2008-08-22 13:40:16.000000000 -0700
++++ alpine-2.00/doc/tech-notes.txt	2009-04-13 17:42:55.129339903 -0700
+@@ -603,7 +603,7 @@
+    into _Alpine_ so there are no _required_ auxiliary files. Instead of copying
+    the binaries manually, you may use make install to install them.
+ 
+-   There  are  three  optional auxiliary files: /usr/local/lib/pine.info,
++   There  are  three  optional auxiliary files: /etc/pine.info,
+    /usr/local/lib/pine.conf, and /usr/local/lib/pine.conf.fixed. The file
+    pine.info contains text on how to get further help on the local system. It
+    is part of the help text for the main menu and should probably refer to the
+@@ -681,7 +681,7 @@
+           Pine's global configuration file.
+    /usr/local/lib/pine.conf.fixed
+           Non-overridable global configuration file.
+-   /usr/local/lib/pine.info
++   /etc/pine.info
+           Local pointer to system administrator.
+    ~/.pinerc
+           Personal configuration file for each user.
+--- alpine-2.00.orig/pith/filter.c	2008-08-21 16:50:47.000000000 -0700
++++ alpine-2.00/pith/filter.c	2009-04-13 17:42:55.229348834 -0700
+@@ -3134,7 +3134,7 @@
+ #endif
+ 
+ #ifndef SYSTEM_PINE_INFO_PATH
+-#define SYSTEM_PINE_INFO_PATH "/usr/local/lib/pine.info"
++#define SYSTEM_PINE_INFO_PATH "/etc/pine.info"
+ #endif
+ #define CHTML_VAR_EXPAND(S) (!strcmp(S, "PINE_INFO_PATH")   \
+ 			     ? SYSTEM_PINE_INFO_PATH : S)
