@@ -320,3 +320,17 @@ Some more fixes in the doc according the move /usr/spool/news -> /var/spool/news
  
  The third selection is
  the user's personal choice for a UNIX print command.  The text to be
+--- alpine-2.00.orig/doc/alpine.1	2008-08-22 13:40:16.000000000 -0700
++++ alpin-2.00/doc/alpine.1	2009-04-13 17:23:14.197375773 -0700
+@@ -307,9 +307,9 @@
+ .br
+ /usr/local/lib/pine.info	Local pointer to system administrator.
+ .br
+-/usr/local/lib/pine.conf	System-wide configuration file.
++/etc/pine.conf	System-wide configuration file.
+ .br
+-/usr/local/lib/pine.conf.fixed	 Non-overridable configuration file.
++/etc/pine.conf.fixed	 Non-overridable configuration file.
+ .br
+ /tmp/.\\usr\\spool\\mail\\xxxx	Per-folder mailbox lock files.
+ .br
