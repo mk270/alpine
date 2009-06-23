@@ -1,5 +1,5 @@
 10_alpine_1.10_patches.patch
-10_hurd_build.patch
 10_config2etc.patch
 10_alpine_1.10_mlock.patch
 10_alpine_1.10_spooldir.patch
+20_barry_defreese_hurd_build_fix.patch
