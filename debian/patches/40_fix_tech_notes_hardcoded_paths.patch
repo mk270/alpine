@@ -1,0 +1,38 @@
+Index: alpine-2.00/doc/tech-notes.txt
+===================================================================
+--- alpine-2.00.orig/doc/tech-notes.txt	2009-06-23 13:10:25.000000000 -0400
++++ alpine-2.00/doc/tech-notes.txt	2009-06-23 13:11:15.000000000 -0400
+@@ -273,13 +273,13 @@
+    sendmail-path, and compile-time options. The first MTA specified in the
+    following list is used:
+     1. _sendmail-path_ in /etc/pine.conf.fixed
+-    2. _smtp-server_ in /usr/local/pine.conf.fixed
++    2. _smtp-server_ in /etc/pine.conf.fixed
+     3. _sendmail-path_ specified on the command line.
+     4. _smtp-server_ specified on the command line.
+     5. _sendmail-path_ in the user's .pinerc file.
+     6. _smtp-server_ in the user's .pinerc file.
+     7. _sendmail-path_ in /etc/pine.conf
+-    8. _smtp-server_ in /usr/local/pine.conf
++    8. _smtp-server_ in /etc/pine.conf
+     9. DF_SENDMAIL_PATH defined at compile time.
+    10. SENDMAIL and SENDMAILFLAGS defined at compile time.
+ 
+@@ -603,7 +603,7 @@
+    into _Alpine_ so there are no _required_ auxiliary files. Instead of copying
+    the binaries manually, you may use make install to install them.
+ 
+-   There  are  three  optional auxiliary files: /usr/local/lib/pine.info,
++   There  are  three  optional auxiliary files: /etc/pine.info,
+    /etc/pine.conf, and /etc/pine.conf.fixed. The file
+    pine.info contains text on how to get further help on the local system. It
+    is part of the help text for the main menu and should probably refer to the
+@@ -681,7 +681,7 @@
+           Pine's global configuration file.
+    /etc/pine.conf.fixed
+           Non-overridable global configuration file.
+-   /usr/local/lib/pine.info
++   /etc/pine.info
+           Local pointer to system administrator.
+    ~/.pinerc
+           Personal configuration file for each user.

@@ -1,0 +1,19 @@
+Index: alpine-2.00/doc/alpine.1
+===================================================================
+--- alpine-2.00.orig/doc/alpine.1	2009-06-23 13:08:33.000000000 -0400
++++ alpine-2.00/doc/alpine.1	2009-06-23 13:09:27.000000000 -0400
+@@ -305,11 +305,11 @@
+ .br
+ /etc/mime.types	System-wide file ext. to MIME type mapping
+ .br
+-/usr/local/lib/pine.info	Local pointer to system administrator.
++/etc/pine.info	Local pointer to system administrator.
+ .br
+-/usr/local/lib/pine.conf	System-wide configuration file.
++/etc/pine.conf	System-wide configuration file.
+ .br
+-/usr/local/lib/pine.conf.fixed	 Non-overridable configuration file.
++/etc/pine.conf.fixed	 Non-overridable configuration file.
+ .br
+ /tmp/.\\usr\\spool\\mail\\xxxx	Per-folder mailbox lock files.
+ .br

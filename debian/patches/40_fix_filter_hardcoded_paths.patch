@@ -1,0 +1,13 @@
+Index: alpine-2.00/pith/filter.c
+===================================================================
+--- alpine-2.00.orig/pith/filter.c	2009-06-23 13:11:50.000000000 -0400
++++ alpine-2.00/pith/filter.c	2009-06-23 13:12:02.000000000 -0400
+@@ -3134,7 +3134,7 @@
+ #endif
+ 
+ #ifndef SYSTEM_PINE_INFO_PATH
+-#define SYSTEM_PINE_INFO_PATH "/usr/local/lib/pine.info"
++#define SYSTEM_PINE_INFO_PATH "/etc/pine.info"
+ #endif
+ #define CHTML_VAR_EXPAND(S) (!strcmp(S, "PINE_INFO_PATH")   \
+ 			     ? SYSTEM_PINE_INFO_PATH : S)
