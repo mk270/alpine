@@ -1,3 +1,10 @@
+alpine (2.00+dfsg-4) unstable; urgency=low
+
+  * Changed debian/control to not use backslashes for line
+    continuations. Thanks to Cyril Brulebois (kibi)! (Closes: #535279). 
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Tue, 07 Jul 2009 14:30:09 -0400
+
 alpine (2.00+dfsg-3) unstable; urgency=low
 
   * Add Barry deFreese's little patch to fix building on Debian GNU/Hurd.
