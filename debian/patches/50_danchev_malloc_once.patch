@@ -1,5 +1,5 @@
---- pico/composer.c.orig	2009-06-28 20:46:47.000000000 +0300
-+++ pico/composer.c	2009-06-28 20:49:32.000000000 +0300
+--- alpine-2.00/pico/composer.c.orig	2009-06-28 20:46:47.000000000 +0300
++++ alpine-2.00/pico/composer.c	2009-06-28 20:49:32.000000000 +0300
 @@ -794,7 +794,7 @@
  		    len += lmp->fname ? strlen(lmp->fname) : 0;
  
