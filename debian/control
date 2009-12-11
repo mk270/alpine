@@ -42,7 +42,6 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: editors
 Priority: extra
-Conflicts: nano
 Description: Simple text editor from Alpine, a text-based email client
  "pico" is a simple but powerful text editor.  It was originally the pine
  composer,  the editor used by the pine email client for writing email messages.

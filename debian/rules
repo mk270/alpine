@@ -22,3 +22,8 @@ DEB_CONFIGURE_EXTRA_FLAGS := \
 # install README only into alpine package
 DEB_INSTALL_DOCS_ALL :=
 DEB_INSTALL_DOCS_alpine := README
+
+install/add-dot-alpine-to-pico-binary::
+	bash
+	mv debian/alpine-pico/usr/bin/pico debian/alpine-pico/usr/bin/pico.alpine
+

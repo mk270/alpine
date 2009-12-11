@@ -1,3 +1,10 @@
+alpine (2.00+dfsg-6) unstable; urgency=low
+
+  * Add diversion for pico and remove conflict with nano.
+    (Closes: #415169)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 11 Dec 2009 14:35:06 -0500
+
 alpine (2.00+dfsg-5) unstable; urgency=low
 
   * Remove memory leak from pico/composer.c. Thanks to George Danchev for

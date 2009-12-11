@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
+    update-alternatives --install /usr/bin/pico pico /usr/bin/pico.alpine 40 \
+      --slave /usr/share/man/man1/pico.1.gz pico.1.gz \
+      /usr/share/man/man1/pico.alpine.1.gz
+fi
+
+#DEBHELPER#
+
