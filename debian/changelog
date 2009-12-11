@@ -2,8 +2,10 @@ alpine (2.00+dfsg-6) unstable; urgency=low
 
   * Add diversion for pico and remove conflict with nano.
     (Closes: #415169)
+  * Build-depend on aspell. This makes it always build correctly with
+    spell-checking support. (LP: #340993)
 
- -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 11 Dec 2009 14:35:06 -0500
+ -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 11 Dec 2009 15:49:07 -0500
 
 alpine (2.00+dfsg-5) unstable; urgency=low
 

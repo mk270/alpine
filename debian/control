@@ -5,7 +5,7 @@ Maintainer: Asheesh Laroia <asheesh@asheesh.org>
 Uploaders: Andreas Tille <tille@debian.org>
 Build-Depends: debhelper (>= 5), libldap2-dev, libpam0g-dev, libncurses-dev,
  libssl-dev, autotools-dev, ca-certificates, automake, autoconf, libtool, libkrb5-dev,
- quilt, cdbs
+ quilt, cdbs, aspell
 Standards-Version: 3.8.0
 DM-Upload-Allowed: yes
 Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/ext-maint/alpine/trunk/?rev=0&sc=0
