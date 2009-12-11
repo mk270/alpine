@@ -6,6 +6,7 @@ install/alpine-pico::
 # Rename pico to pico.alpine.
 # alpine-pico.install puts this in the alpine-pico package.
 	mv pico/pico pico/pico.alpine
+	mv doc/pico.1 pico/pico.alpine.1
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
