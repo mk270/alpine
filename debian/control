@@ -27,6 +27,7 @@ Package: alpine-dbg
 Architecture: any
 Depends: alpine (= ${binary:Version}) | alpine-pico (= ${binary:Version}) | pilot (= ${binary:Version})
 Suggests: aspell
+Section: debug
 Priority: extra
 Description: Text-based email client's debugging symbols
  Alpine is an upgrade of the well-known PINE email client.  Its name derives
