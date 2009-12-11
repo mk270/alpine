@@ -2,6 +2,11 @@
 # debian/rules for alpine using cdbs
 # Andreas Tille <tille@debian.org>, GPL
 
+install/alpine-pico::
+# Rename pico to pico.alpine.
+# alpine-pico.install puts this in the alpine-pico package.
+	mv pico/pico pico/pico.alpine
+
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 include /usr/share/cdbs/1/class/autotools.mk
@@ -22,8 +27,4 @@ DEB_CONFIGURE_EXTRA_FLAGS := \
 # install README only into alpine package
 DEB_INSTALL_DOCS_ALL :=
 DEB_INSTALL_DOCS_alpine := README
-
-install/add-dot-alpine-to-pico-binary::
-	bash
-	mv debian/alpine-pico/usr/bin/pico debian/alpine-pico/usr/bin/pico.alpine
 
