@@ -4,6 +4,7 @@ alpine (2.00+dfsg-6) unstable; urgency=low
     (Closes: #415169)
   * Build-depend on aspell. This makes it always build correctly with
     spell-checking support. (LP: #340993)
+  * Change section of alpine-debug to "debug", fixing the override disparity.
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Fri, 11 Dec 2009 15:49:07 -0500
 
