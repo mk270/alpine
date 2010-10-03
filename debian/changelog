@@ -1,6 +1,8 @@
-alpine (2.02-1) UNRELEASED; urgency=low
+alpine (2.02-1) unstable; urgency=low
 
   * New upstream release
+  * Switch to using the source tarball provided by re-alpine
+    (read more in debian/copyright)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 03 Oct 2010 15:31:55 -0400
 
