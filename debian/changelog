@@ -1,8 +1,9 @@
 alpine (2.02-1) unstable; urgency=low
 
-  * New upstream release
-  * Switch to using the source tarball provided by re-alpine
-    (read more in debian/copyright)
+  * New upstream release, based on re-alpine project
+  * Updated debian/copyright to reflect this fact
+  * re-alpine removed the non-free from the tarball, so now
+    we do not repack the upstream tarball. (Yay!)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 03 Oct 2010 15:31:55 -0400
 
