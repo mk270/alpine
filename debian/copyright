@@ -1,11 +1,13 @@
-This package was debianized by Asheesh Laroia <asheesh@asheesh.org> on
-Tue, 05 Dec 2006 15:37:10 -0500.
+This is the Debian GNU/Linux package for the alpine mail and news
+reader.
 
-It was downloaded from ftp://ftp.cac.washington.edu/alpine/ but the
-tarball includes RFC texts which are not DFSG-free.  Therefore, I
-repacked the tarball without imap/docs/rfc/rfc*.txt.
+Earlier versions of alpine came directly from the University of
+Washington. Since development there has stopped, this package uses
+the re-alpine project <http://sourceforge.net/projects/re-alpine>'s
+current tarball.
 
 Upstream Authors: University of Washington - http://www.washington.edu/alpine/
+                  and others
 
 Copyright (C) 2006 University of Washington
 
