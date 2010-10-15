@@ -1,8 +1,9 @@
 alpine (2.02-2) UNRELEASED; urgency=low
 
   * Add self to uploaders. 
+  * Update homepage and watchfile for new upstream.
 
- -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 16:31:48 -0400
+ -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 16:33:49 -0400
 
 alpine (2.02-1) unstable; urgency=low
 

@@ -10,7 +10,7 @@ Standards-Version: 3.8.0
 DM-Upload-Allowed: yes
 Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/ext-maint/alpine/trunk/?rev=0&sc=0
 Vcs-Svn: svn://svn.debian.org/svn/collab-maint/ext-maint/alpine/trunk/
-Homepage: http://www.washington.edu/alpine/
+Homepage: http://sourceforge.net/projects/re-alpine/
 
 Package: alpine
 Architecture: any
