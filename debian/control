@@ -2,7 +2,7 @@ Source: alpine
 Section: mail
 Priority: optional
 Maintainer: Asheesh Laroia <asheesh@asheesh.org>
-Uploaders: Andreas Tille <tille@debian.org>
+Uploaders: Andreas Tille <tille@debian.org>, Luke Faraone <lfaraone@debian.org>
 Build-Depends: debhelper (>= 5), libldap2-dev, libpam0g-dev, libncurses-dev,
  libssl-dev, autotools-dev, ca-certificates, automake, autoconf, libtool, libkrb5-dev,
  quilt, cdbs, aspell
