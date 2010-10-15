@@ -1,5 +1,5 @@
---- alpine-2.00.orig/imap/docs/imaprc.txt
-+++ alpine-2.00/imap/docs/imaprc.txt
+--- a/imap/docs/imaprc.txt
++++ b/imap/docs/imaprc.txt
 @@ -168,8 +168,8 @@
     Sets the directory in which the user's data can be found.  A user's
     folders can be found in a subdirectory of the black box directory
@@ -29,8 +29,8 @@
      is no fcntl() locking (SVR4) or usable flock() locking (e.g. NFS),
      then there is no way to win.  Find a different system to use.
  
---- alpine-2.00.orig/imap/docs/locking.txt
-+++ alpine-2.00/imap/docs/locking.txt
+--- a/imap/docs/locking.txt
++++ b/imap/docs/locking.txt
 @@ -255,7 +255,7 @@
  timeout for this lock, after which it is broken on the presumption
  that it is a stale lock.  If it can not create the .lock file due to

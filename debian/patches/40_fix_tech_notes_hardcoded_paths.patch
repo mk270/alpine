@@ -1,7 +1,5 @@
-Index: alpine-2.00/doc/tech-notes.txt
-===================================================================
---- alpine-2.00.orig/doc/tech-notes.txt	2009-06-23 13:10:25.000000000 -0400
-+++ alpine-2.00/doc/tech-notes.txt	2009-06-23 13:11:15.000000000 -0400
+--- a/doc/tech-notes.txt
++++ b/doc/tech-notes.txt
 @@ -273,13 +273,13 @@
     sendmail-path, and compile-time options. The first MTA specified in the
     following list is used:
