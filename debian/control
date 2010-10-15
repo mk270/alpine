@@ -6,7 +6,7 @@ Uploaders: Andreas Tille <tille@debian.org>, Luke Faraone <lfaraone@debian.org>
 Build-Depends: debhelper (>= 5), libldap2-dev, libpam0g-dev, libncurses-dev,
  libssl-dev, autotools-dev, ca-certificates, automake, autoconf, libtool, libkrb5-dev,
  quilt, cdbs, aspell
-Standards-Version: 3.8.0
+Standards-Version: 3.9.1
 DM-Upload-Allowed: yes
 Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/ext-maint/alpine/trunk/?rev=0&sc=0
 Vcs-Svn: svn://svn.debian.org/svn/collab-maint/ext-maint/alpine/trunk/
