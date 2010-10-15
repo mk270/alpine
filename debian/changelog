@@ -3,8 +3,9 @@ alpine (2.02-2) UNRELEASED; urgency=low
   * Add self to uploaders. 
   * Update homepage and watchfile for new upstream.
   * Conflicts: and Replaces: pine. (Closes: #482330)
+  * Include -doc package.
 
- -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 16:46:26 -0400
+ -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 19:04:44 -0400
 
 alpine (2.02-1) unstable; urgency=low
 

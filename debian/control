@@ -25,6 +25,15 @@ Description: Text-based email client, friendly for novices but powerful
  It features a full suite of support for mail protocols like IMAP and SMTP and
  security protocols like TLS.  It uses curses for its interface.
 
+Package: alpine-doc
+Architecture: all
+Suggests: alpine
+Description: Text-based email client's documentation
+ Alpine is an upgrade of the well-known PINE email client.  Its name derives
+ from the use of the Apache License and its ties to PINE.
+ .
+ This package stores documentation for alpine.
+
 Package: alpine-dbg
 Architecture: any
 Depends: alpine (= ${binary:Version}) | alpine-pico (= ${binary:Version}) | pilot (= ${binary:Version})
