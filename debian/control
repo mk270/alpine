@@ -27,6 +27,7 @@ Description: Text-based email client, friendly for novices but powerful
 
 Package: alpine-doc
 Architecture: all
+Depends: ${misc:Depends}
 Suggests: alpine
 Description: Text-based email client's documentation
  Alpine is an upgrade of the well-known PINE email client.  Its name derives
@@ -36,7 +37,7 @@ Description: Text-based email client's documentation
 
 Package: alpine-dbg
 Architecture: any
-Depends: alpine (= ${binary:Version}) | alpine-pico (= ${binary:Version}) | pilot (= ${binary:Version})
+Depends: alpine (= ${binary:Version}) | alpine-pico (= ${binary:Version}) | pilot (= ${binary:Version}), ${misc:Depends}
 Suggests: aspell
 Section: debug
 Priority: extra
