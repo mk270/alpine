@@ -9,7 +9,7 @@ current tarball.
 Upstream Authors: University of Washington - http://www.washington.edu/alpine/
                   and others
 
-Copyright (C) 2006 University of Washington
+Copyright © 2006 University of Washington
 
 License:
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +28,6 @@ On Debian GNU/Linux you can find this license under
 `/usr/share/common-licenses/Apache-2.0'.
 
 The Debian packaging is
- (C) 2006-2008 Asheesh Laroia <asheesh@asheesh.org>
- (C) 2008, Andreas Tille <tille@debian.org> and
+ © 2006-2008 Asheesh Laroia <asheesh@asheesh.org>
+ © 2008, Andreas Tille <tille@debian.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
