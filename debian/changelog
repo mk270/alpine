@@ -2,7 +2,7 @@ alpine (2.02-2) UNRELEASED; urgency=low
 
   * Add self to uploaders. 
   * Update homepage and watchfile for new upstream.
-  * Conflicts: and Replaces: pine. (Closes: #482330)
+  * alpine now Conflicts: and Replaces: pine. (Closes: #482330)
   * Include -doc package.
     - Add alpine-doc to alpine's Recommends:.
   * Depend on ${misc:Depends} substitution variable.
