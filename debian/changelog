@@ -4,12 +4,13 @@ alpine (2.02-2) UNRELEASED; urgency=low
   * Update homepage and watchfile for new upstream.
   * Conflicts: and Replaces: pine. (Closes: #482330)
   * Include -doc package.
+    - Add alpine-doc to alpine's Recommends:.
   * Depend on ${misc:Depends} substitution variable.
   * Bump standards version to 3.9.1, no changes needed.
   * Switch to dpkg-source 3.0 (quilt) format.
     - Refreshed patches.
 
- -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 19:23:48 -0400
+ -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 23:20:37 -0400
 
 alpine (2.02-1) unstable; urgency=low
 
