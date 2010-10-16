@@ -1,4 +1,4 @@
-alpine (2.02-2) UNRELEASED; urgency=low
+alpine (2.02-2) unstable; urgency=low
 
   * Add self to uploaders. 
   * Update homepage and watchfile for new upstream.
@@ -10,7 +10,7 @@ alpine (2.02-2) UNRELEASED; urgency=low
   * Switch to dpkg-source 3.0 (quilt) format.
     - Refreshed patches.
 
- -- Luke Faraone <lfaraone@debian.org>  Fri, 15 Oct 2010 23:20:37 -0400
+ -- Luke Faraone <lfaraone@debian.org>  Sat, 16 Oct 2010 07:44:26 -0400
 
 alpine (2.02-1) unstable; urgency=low
 
