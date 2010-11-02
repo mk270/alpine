@@ -2,6 +2,7 @@ alpine (2.02-3) unstable; urgency=low
 
   * Explicitly list libraries needed by c-client.a to a patch.
     Thanks to Alex Chiang and Evan Broder. (Closes: #601464 #601801)
+  * Remove unnecessary dependency on quilt.
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 01 Nov 2010 21:25:52 -0400
 
