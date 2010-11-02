@@ -1,5 +1,5 @@
-This patch fixes the issue that -lpam is mentioned at the wrong position in
-the makefile.  Attaching it to the end of all libs fixes the problem.
+This patch fixes the issue that some libraries are mentioned at the wrong
+position in the Makefile. Attaching it to the end of all libs fixes the problem.
 --- a/configure.ac
 +++ b/configure.ac
 @@ -638,7 +638,7 @@
@@ -18,7 +18,7 @@ the makefile.  Attaching it to the end of all libs fixes the problem.
  LIBINTL = @LIBINTL@
  LIBOBJS = @LIBOBJS@
 -LIBS = @LIBS@
-+LIBS = @LIBS@ -lpam
++LIBS = @LIBS@ -lpam -lkrb5 -lcrypto
  LIBTOOL = @LIBTOOL@
  LIPO = @LIPO@
  LN = @LN@
