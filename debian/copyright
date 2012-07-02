@@ -6,6 +6,25 @@ Washington. Since development there has stopped, this package uses
 the re-alpine project <http://sourceforge.net/projects/re-alpine>'s
 current tarball.
 
+Some files have been removed to comply with the Debian Free Software
+Guidelines. See Debian bug #641479 <http://bugs.debian.org/641479>
+for more history. Particular files that were removed are:
+
+* pico/msmem.c. Reason: File has, at best, ambiguous permission to distribute.
+
+A lot of "ldap" binaries with no obvious source code within the
+tarball, and that are not needed to do a build. Here is a list of them:
+
+* ldap/binaries/debug/ldap32.lib
+* ldap/binaries/debug/libldap.dll
+* ldap/binaries/debug/libldap.lib
+* ldap/binaries/debug/ltest32.exe
+* ldap/binaries/debug/ltest.exe
+* ldap/binaries/release/ldap32.dll
+* ldap/binaries/release/ldap32.lib
+* ldap/binaries/release/libldap.dll
+* ldap/binaries/release/libldap.lib
+
 Upstream Authors: University of Washington - http://www.washington.edu/alpine/
                   and others
 
@@ -28,6 +47,6 @@ On Debian GNU/Linux you can find this license under
 `/usr/share/common-licenses/Apache-2.0'.
 
 The Debian packaging is
- © 2006-2008 Asheesh Laroia <asheesh@asheesh.org>
+ © 2006-2012 Asheesh Laroia <asheesh@asheesh.org>
  © 2008, Andreas Tille <tille@debian.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
