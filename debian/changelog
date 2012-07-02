@@ -1,3 +1,12 @@
+alpine (2.02+dfsg-1) UNRELEASED; urgency=low
+
+  * ACK'd non-maintainer upload by tolimar. (Thank you!)
+  * Removed Windows (and other) binaries from ldap/binaries/* and
+    pico/msmem.c. (Closes: #641479)
+  * Configuring debian/rules for hardening flags, as per release goal.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 02 Jul 2012 16:44:02 -0600
+
 alpine (2.02-3.1) unstable; urgency=medium
 
   * Non-maintainer upload.

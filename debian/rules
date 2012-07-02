@@ -11,6 +11,11 @@ install/alpine-pico::
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND = -Wall
+include /usr/share/dpkg/buildflags.mk
+
+
 DEB_CONFIGURE_EXTRA_FLAGS := \
 	--host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
         --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info \
