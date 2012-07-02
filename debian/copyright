@@ -15,6 +15,7 @@ for more history. Particular files that were removed are:
 A lot of "ldap" binaries with no obvious source code within the
 tarball, and that are not needed to do a build. Here is a list of them:
 
+* alpine/ldap32.dll
 * ldap/binaries/debug/ldap32.lib
 * ldap/binaries/debug/libldap.dll
 * ldap/binaries/debug/libldap.lib
