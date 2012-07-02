@@ -1,3 +1,13 @@
+alpine (2.02-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add patch from Eric Alexander to solve the format not a string or
+    literal compiler error (Closes: #643349)
+    (Added as debian/patches/60_fix_string_error.patch)
+  * Set urgency to medium due to rc bug fix
+
+ -- Alexander Reichle-Schmehl <tolimar@debian.org>  Fri, 02 Dec 2011 15:14:18 +0100
+
 alpine (2.02-3) unstable; urgency=low
 
   * Explicitly list libraries needed by c-client.a to a patch.
