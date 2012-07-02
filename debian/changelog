@@ -7,6 +7,8 @@ alpine (2.02+dfsg-1) unstable; urgency=medium
   * Configuring debian/rules for hardening flags, as per release goal.
     (Therefore, this release adds a versioned dpkg dependency.)
   * Set urgency to medium due to fix for release-critical bug.
+  * Bump the Standards-Version to 3.9.3; no changes since 3.9.1 affect
+    this package.
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Mon, 02 Jul 2012 16:44:02 -0600
 
