@@ -1,3 +1,10 @@
+alpine (2.02+dfsg-2) UNRELEASED; urgency=low
+
+  * Adding patch from Geoffrey Thomas to disable broken phone-
+    home functionality. (Thank you!) (Closes: #631758)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 26 Aug 2012 13:23:07 -0700
+
 alpine (2.02+dfsg-1) unstable; urgency=medium
 
   * ACK'd non-maintainer upload by tolimar. (Thank you!)

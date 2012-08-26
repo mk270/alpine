@@ -8,3 +8,4 @@
 40_fix_filter_hardcoded_paths.patch
 50_danchev_malloc_once.patch
 60_fix_string_error.patch
+70_remove_phone_home.patch
