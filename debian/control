@@ -14,7 +14,7 @@ Homepage: http://sourceforge.net/projects/re-alpine/
 
 Package: alpine
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: mlock, ${shlibs:Depends}, ${misc:Depends}
 Recommends: alpine-doc
 Suggests: aspell, mail-transport-agent | exim4
 Conflicts: pine 

@@ -2,6 +2,12 @@ alpine (2.02+dfsg-2) UNRELEASED; urgency=low
 
   * Adding patch from Geoffrey Thomas to disable broken phone-
     home functionality. (Thank you!) (Closes: #631758)
+  * Adding dependency on mlock so that alpine no longer warns
+    the user about permissions on /var/spool/mail (or /var/mail).
+    (In theory, this new dependency is only required if you are using
+    an mbox file, but since reading system mail is within the core
+    functionality of alpine, it seems sensible that alpine should do that
+    without warnings out of the box.) (Closes: #414264)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 26 Aug 2012 13:23:07 -0700
 
