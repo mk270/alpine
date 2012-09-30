@@ -8,6 +8,7 @@ alpine (2.02+dfsg-2) UNRELEASED; urgency=low
     an mbox file, but since reading system mail is within the core
     functionality of alpine, it seems sensible that alpine should do that
     without warnings out of the box.) (Closes: #414264)
+  * ACKing NMU by Johnathan McCrohan. Thank you!
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 26 Aug 2012 13:23:07 -0700
 
