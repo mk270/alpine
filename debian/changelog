@@ -1,4 +1,4 @@
-alpine (2.02+dfsg-2) UNRELEASED; urgency=low
+alpine (2.02+dfsg-2) unstable; urgency=low
 
   * Adding patch from Geoffrey Thomas to disable broken phone-
     home functionality. (Thank you!) (Closes: #631758)
