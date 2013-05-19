@@ -1,0 +1,27 @@
+From e2eef589799d742ea6ccaec9144dc619a516222e Mon Sep 17 00:00:00 2001
+From: Unknown <unknown@sourceforge.net>
+Date: Sun, 3 Jun 2012 11:59:09 +0200
+Subject: [PATCH] Update to RFC 5751 as per bug 3428168
+
+---
+ pith/smime.c |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+diff --git a/pith/smime.c b/pith/smime.c
+index 55b2f3c..1e2ed8c 100644
+--- a/pith/smime.c
++++ b/pith/smime.c
+@@ -1330,7 +1330,9 @@ encrypt_outgoing_message(METAENV *header, BODY **bodyP)
+     dprint((9, "encrypt_outgoing_message()"));
+     smime_init();
+ 
+-    cipher = EVP_des_cbc();
++//    cipher = EVP_des_cbc();
++// AJB 20111025 - upgrade to 128 bit AES as per RFC5751
++    cipher = EVP_aes_128_cbc();
+ 
+     encerts = sk_X509_new_null();
+ 
+-- 
+1.7.4.1
+
