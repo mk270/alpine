@@ -5,6 +5,8 @@ alpine (2.10+dfsg-1) unstable; urgency=low
     was always set to "Sun" incorrectly. (Closes: #692870)
   * This release ships a fix for IMAP-encoded non-ASCII folder names.
     (Closes: #674067)
+  * This release simplifies (and corrects) S/MIME handling for messages
+    that encrypted *and* signed. (Closes: #653420)
 
  -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 19 May 2013 16:15:01 -0700
 
