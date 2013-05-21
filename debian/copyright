@@ -3,8 +3,12 @@ reader.
 
 Earlier versions of alpine came directly from the University of
 Washington. Since development there has stopped, this package uses
-the re-alpine project <http://sourceforge.net/projects/re-alpine>'s
-current tarball.
+the alpine tarball created by Eduardo Chappa, who has indicated in
+http://comments.gmane.org/gmane.mail.alpine.info/4862 that he
+licenses the tarball under Apache License 2.0. It also contains work
+created by members of the  re-alpine project
+<http://sourceforge.net/projects/re-alpine> who have previously
+released that work as Apache License 2.0.
 
 Some files have been removed to comply with the Debian Free Software
 Guidelines. See Debian bug #641479 <http://bugs.debian.org/641479>
@@ -51,3 +55,52 @@ The Debian packaging is
  © 2006-2012 Asheesh Laroia <asheesh@asheesh.org>
  © 2008, Andreas Tille <tille@debian.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+
+RFC text files have also been removed. You can read about the
+rationale here: http://wiki.debian.org/NonFreeIETFDocuments .
+
+The removed files are:
+
+* imap/docs/rfc/rfc1732.txt
+* imap/docs/rfc/rfc1733.txt
+* imap/docs/rfc/rfc2061.txt
+* imap/docs/rfc/rfc2062.txt
+* imap/docs/rfc/rfc2087.txt
+* imap/docs/rfc/rfc2088.txt
+* imap/docs/rfc/rfc2177.txt
+* imap/docs/rfc/rfc2180.txt
+* imap/docs/rfc/rfc2193.txt
+* imap/docs/rfc/rfc2195.txt
+* imap/docs/rfc/rfc2221.txt
+* imap/docs/rfc/rfc2342.txt
+* imap/docs/rfc/rfc2683.txt
+* imap/docs/rfc/rfc2971.txt
+* imap/docs/rfc/rfc3348.txt
+* imap/docs/rfc/rfc3501.txt
+* imap/docs/rfc/rfc3502.txt
+* imap/docs/rfc/rfc3503.txt
+* imap/docs/rfc/rfc3516.txt
+* imap/docs/rfc/rfc3656.txt
+* imap/docs/rfc/rfc3691.txt
+* imap/docs/rfc/rfc4314.txt
+* imap/docs/rfc/rfc4315.txt
+* imap/docs/rfc/rfc4422.txt
+* imap/docs/rfc/rfc4466.txt
+* imap/docs/rfc/rfc4467.txt
+* imap/docs/rfc/rfc4468.txt
+* imap/docs/rfc/rfc4469.txt
+* imap/docs/rfc/rfc4505.txt
+* imap/docs/rfc/rfc4549.txt
+* imap/docs/rfc/rfc4551.txt
+* imap/docs/rfc/rfc4616.txt
+* imap/docs/rfc/rfc4731.txt
+* imap/docs/rfc/rfc4752.txt
+* imap/docs/rfc/rfc4790.txt
+* imap/docs/rfc/rfc4959.txt
+* imap/docs/rfc/rfc4978.txt
+* imap/docs/rfc/rfc5032.txt
+* imap/docs/rfc/rfc5051.txt
+* imap/docs/rfc/rfc5092.txt
+* imap/docs/rfc/rfc5161.txt
+* imap/docs/rfc/rfc5162.txt
+* imap/docs/rfc/rfc5234.txt

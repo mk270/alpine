@@ -1,3 +1,13 @@
+alpine (2.10+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release ships a fix for an issue where the PREFDATETIME token
+    was always set to "Sun" incorrectly. (Closes: #692870)
+  * This release ships a fix for IMAP-encoded non-ASCII folder names.
+    (Closes: #674067)
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sun, 19 May 2013 16:15:01 -0700
+
 alpine (2.02+dfsg-2) unstable; urgency=low
 
   * Adding patch from Geoffrey Thomas to disable broken phone-

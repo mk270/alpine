@@ -8,7 +8,7 @@ pine. :-( Also, in any case, the address bounces...
 
 Signed-off-by: Geoffrey Thomas <geofft@ldpreload.com>
 ---
- alpine/mailview.c |   10 ---------
+ alpine/mailview.c |    9 --------
  alpine/newuser.c  |   26 +++--------------------
  alpine/send.c     |   60 -----------------------------------------------------
  alpine/send.h     |    1 -
@@ -17,13 +17,13 @@ Signed-off-by: Geoffrey Thomas <geofft@ldpreload.com>
  pith/send.c       |   42 -------------------------------------
  pith/send.h       |    2 --
  pith/state.h      |    1 -
- 9 files changed, 3 insertions(+), 179 deletions(-)
+ 9 files changed, 3 insertions(+), 178 deletions(-)
 
 diff --git a/alpine/mailview.c b/alpine/mailview.c
-index a7eb839..783e965 100644
+index 35f5833..6b48860 100644
 --- a/alpine/mailview.c
 +++ b/alpine/mailview.c
-@@ -177,7 +177,6 @@ struct view_write_s {
+@@ -178,7 +178,6 @@ int	    url_local_imap(char *);
  int	    url_local_nntp(char *);
  int	    url_local_news(char *);
  int	    url_local_file(char *);
@@ -31,15 +31,15 @@ index a7eb839..783e965 100644
  static int  print_to_printer(SCROLL_S *);
  int	    search_text(int, long, int, char **, Pos *, int *);
  void	    update_scroll_titlebar(long, int);
-@@ -1697,7 +1696,6 @@ struct view_write_s {
- 	{"news:", 5, url_local_news},
+@@ -1701,7 +1700,6 @@ url_local_handler(char *s)
  	{"x-alpine-gripe:", 15, gripe_gripe_to},
  	{"x-alpine-help:", 14, url_local_helper},
+ 	{"x-pine-help:", 12, url_local_helper},
 -	{"x-alpine-phone-home:", 20, url_local_phone_home},
  	{"x-alpine-config:", 16, url_local_config},
  	{"x-alpine-cert:", 14, url_local_certdetails},
  	{"#", 1, url_local_fragment},
-@@ -2252,14 +2250,6 @@ struct view_write_s {
+@@ -2256,14 +2255,6 @@ url_local_fragment(char *fragment)
  }
  
  
@@ -55,10 +55,10 @@ index a7eb839..783e965 100644
   * Format editorial comment referencing screen offering
   * List-* header supplied commands
 diff --git a/alpine/newuser.c b/alpine/newuser.c
-index d273e99..ac094f3 100644
+index 381f21c..09a7991 100644
 --- a/alpine/newuser.c
 +++ b/alpine/newuser.c
-@@ -68,20 +68,6 @@
+@@ -69,20 +69,6 @@ new_user_or_version(struct pine *ps)
      shown_text = text;
  
      /*
@@ -79,7 +79,7 @@ index d273e99..ac094f3 100644
       * At this point, shown_text is a charstarstar with html
       * Turn it into a charstar with digested html
       */
-@@ -139,15 +125,9 @@
+@@ -140,15 +126,9 @@ new_user_or_version(struct pine *ps)
  		       (nuov_keymenu.how_many * 12) * sizeof(struct key));
  		setbitmap(sargs.keys.bitmap);
  
@@ -99,10 +99,10 @@ index d273e99..ac094f3 100644
  		if(ps->first_time_user)
  		  clrbitn(NUOV_RELNOTES, sargs.keys.bitmap);
 diff --git a/alpine/send.c b/alpine/send.c
-index 27bc4e8..01c8098 100644
+index 3d670f0..f9c193d 100644
 --- a/alpine/send.c
 +++ b/alpine/send.c
-@@ -70,9 +70,6 @@
+@@ -71,9 +71,6 @@ typedef struct body_particulars {
      PARAMETER         *parameter;
  } BODY_PARTICULARS_S;
  
@@ -112,7 +112,7 @@ index 27bc4e8..01c8098 100644
  /*
   * macro to bind pico's headerentry pointer to PINEFIELD "extdata" hook
   */
-@@ -5462,63 +5459,6 @@ stored in a storage object (see filter.c).
+@@ -5481,63 +5478,6 @@ pine_send_newsgroup_name(char *mailbox, char *group_name, size_t len)
  
  
  /*----------------------------------------------------------------------
@@ -177,10 +177,10 @@ index 27bc4e8..01c8098 100644
      intended to be passed along for editing, and is in the form of
      of a storage object brought into existence sometime before pico_send().
 diff --git a/alpine/send.h b/alpine/send.h
-index ed7955b..b82d709 100644
+index 4d216dd..68cbec6 100644
 --- a/alpine/send.h
 +++ b/alpine/send.h
-@@ -41,7 +41,6 @@
+@@ -42,7 +42,6 @@ int	    pine_simple_send(ENVELOPE *, BODY **, ACTION_S *, char *, char *, char *
  void	    pine_send(ENVELOPE *, BODY **, char *, ACTION_S *, char *, REPLY_S *,
  		      REDRAFT_POS_S *, char *, PINEFIELD *, int);
  int	    upload_msg_to_pico(char *, size_t, long *);
@@ -189,10 +189,10 @@ index ed7955b..b82d709 100644
  char	   *pine_send_status(int, char *, char *, size_t, int *);
  int	    confirm_daemon_send(void);
 diff --git a/pith/filter.c b/pith/filter.c
-index 3b9689c..9d9f3e5 100644
+index b8712b2..2ecee11 100644
 --- a/pith/filter.c
 +++ b/pith/filter.c
-@@ -7515,8 +7515,6 @@
+@@ -7521,8 +7521,6 @@ html_element_comment(FILTER_S *f, char *s)
  		      HD(f)->bitbucket = 0;
  		    else if(!strucmp(s, "running"))
  		      HD(f)->bitbucket = 0;
@@ -202,10 +202,10 @@ index 3b9689c..9d9f3e5 100644
  		    else if(!strucmp(s, "os_windows"))
  		      HD(f)->bitbucket = 0;
 diff --git a/pith/pine.hlp b/pith/pine.hlp
-index b6f2693..1b5d9a6 100644
+index 3af1062..19d86d4 100644
 --- a/pith/pine.hlp
 +++ b/pith/pine.hlp
-@@ -1286,18 +1286,6 @@ this link now to send a message to it:<BR>
+@@ -1322,18 +1322,6 @@ this link now to send a message to it:<BR>
  We hope you will explore Alpine's many capabilities. From the MAIN MENU,
  select Setup/Config to see many of the options available to you. Also note
  that all screens have context-sensitive help text available.<P>
@@ -224,7 +224,7 @@ index b6f2693..1b5d9a6 100644
  To Exit this screen and continue your Alpine session press "Return".
  <!--chtml endif-->
  </BODY>
-@@ -1319,20 +1307,7 @@ Your Pine configuration file is automatically used for Alpine.
+@@ -1355,20 +1343,7 @@ Your Pine configuration file is automatically used for Alpine.
  The Release Notes may be viewed by pressing 
  &quot;R&quot; now or while in the MAIN MENU.
  <P>
@@ -245,7 +245,7 @@ index b6f2693..1b5d9a6 100644
  </BODY>
  </HTML>
  ===== new_version_greeting ======
-@@ -1349,20 +1324,7 @@ this version of Alpine before.  This version's significant changes are
+@@ -1385,20 +1360,7 @@ this version of Alpine before.  This version's significant changes are
  documented in the Release Notes, which may be viewed by pressing 
  &quot;R&quot; now or while in the MAIN MENU.
  <P>
@@ -267,10 +267,10 @@ index b6f2693..1b5d9a6 100644
  </HTML>
  
 diff --git a/pith/send.c b/pith/send.c
-index 4af4b40..9068104 100644
+index a0c6043..ddf73bf 100644
 --- a/pith/send.c
 +++ b/pith/send.c
-@@ -1676,48 +1676,6 @@ char	  *mta_parse_post(METAENV *, BODY *, char *, char *, size_t, void (*)(char
+@@ -1677,48 +1677,6 @@ update_answered_flags(REPLY_S *reply)
  }
  
  
@@ -320,10 +320,10 @@ index 4af4b40..9068104 100644
       Call the mailer, SMTP, sendmail or whatever
       
 diff --git a/pith/send.h b/pith/send.h
-index b1d0d33..22a9890 100644
+index 69d763f..f4787bd 100644
 --- a/pith/send.h
 +++ b/pith/send.h
-@@ -224,8 +224,6 @@ int	    redraft_work(MAILSTREAM **, long, ENVELOPE **, BODY **, char **, char **
+@@ -225,8 +225,6 @@ METAENV	   *pine_new_env(ENVELOPE *, char **, char ***, PINEFIELD *);
  void	    pine_free_env(METAENV **);
  int	    check_addresses(METAENV *);
  void	    update_answered_flags(REPLY_S *);
@@ -333,10 +333,10 @@ index b1d0d33..22a9890 100644
  			void (*)(PIPE_S *, int, void *));
  int         write_postponed(METAENV *, BODY *);
 diff --git a/pith/state.h b/pith/state.h
-index 565ab9f..3981791 100644
+index 93db4f4..efcab46 100644
 --- a/pith/state.h
 +++ b/pith/state.h
-@@ -187,7 +187,6 @@ struct pine {
+@@ -190,7 +190,6 @@ struct pine {
      unsigned	 force_prefer_plain:1;
      unsigned	 force_no_prefer_plain:1;
  
@@ -345,5 +345,5 @@ index 565ab9f..3981791 100644
      unsigned     painted_footer_on_startup:1;
      unsigned     open_readonly_on_startup:1;
 -- 
-1.7.10
+1.7.10.4
 
