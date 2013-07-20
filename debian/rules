@@ -23,7 +23,6 @@ DEB_CONFIGURE_EXTRA_FLAGS := \
 	--with-system-pinerc=/etc/pine.conf \
 	--with-system-fixed-pinerc=/etc/pinerc.fixed \
 	--with-debug-level=0 \
-	--with-spellcheck-prog=aspell \
 	--without-tcl \
 	--with-passfile=.pine-passfile \
 	--with-smtp-msa=/usr/sbin/sendmail \
