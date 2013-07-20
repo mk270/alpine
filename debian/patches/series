@@ -6,5 +6,4 @@
 30_fix_man_page_hardcoded_paths.patch
 40_fix_tech_notes_hardcoded_paths.patch
 40_fix_filter_hardcoded_paths.patch
-70_des56_rfc5751.patch
 80_remove_phone_home.patch
