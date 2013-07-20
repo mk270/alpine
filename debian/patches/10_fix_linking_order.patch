@@ -11,14 +11,3 @@ position in the Makefile. Attaching it to the end of all libs fixes the problem.
        if test -f /etc/fedora-release -o -f /etc/redhat-release -o -f /etc/redhat_version ; then  
          alpine_SSLTYPE="nopwd"
  	if test -d /etc/pki/tls ; then  
---- a/alpine/Makefile.in
-+++ b/alpine/Makefile.in
-@@ -202,7 +202,7 @@
- LIBICONV = @LIBICONV@
- LIBINTL = @LIBINTL@
- LIBOBJS = @LIBOBJS@
--LIBS = @LIBS@
-+LIBS = @LIBS@ -lpam -lkrb5 -lcrypto
- LIBTOOL = @LIBTOOL@
- LIPO = @LIPO@
- LN = @LN@

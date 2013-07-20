@@ -1,3 +1,11 @@
+alpine (2.11-1) UNRELEASED; urgency=low
+
+  * Testing alpine 2.11 build.
+  * Removed old, wrong way of setting aspell as default spell checker that
+    seems like it has been wrong since 2007.
+
+ -- Asheesh Laroia <asheesh@asheesh.org>  Sat, 20 Jul 2013 00:37:55 -0700
+
 alpine (2.10+dfsg-1) unstable; urgency=low
 
   * New upstream release.
