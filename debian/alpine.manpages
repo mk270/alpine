@@ -1,2 +1,2 @@
-doc/alpine.1
-doc/rp*.1
+usr/share/man/man1/alpine.1
+usr/share/man/man1/rp*.1
