@@ -41,7 +41,12 @@ get-orig-source:
 	uscan --noconf --force-download --rename --repack --download-current-version --destdir=.
 	tar -xf $(pkg)_$(upstream_version).orig.tar.gz
 	mv $(pkg)-$(upstream_version) $(pkg)-$(dfsg_version)
-	cd $(pkg)-$(dfsg_version) ; rm -rf imap/docs/draft/ ldap/binaries/
-	cd $(pkg)-$(dfsg_version) ; rm -f alpine/ldap32.dll web/detach web/bin/tclsh web/cgi/detach
+	## No obvious source code, not needed to build.
+	cd $(pkg)-$(dfsg_version) ; rm -rf ldap/binaries/
+	cd $(pkg)-$(dfsg_version) ; rm -f alpine/ldap32.dll
+	## source-contains-unsafe-symlink
+	cd $(pkg)-$(dfsg_version) ; rm -f web/detach web/bin/tclsh web/cgi/detach
+	## http://wiki.debian.org/NonFreeIETFDocuments
+	cd $(pkg)-$(dfsg_version) ; rm -rf imap/docs/draft/ imap/docs/rfc/
 	XZ_OPT="-f6" tar -Jcf $(pkg)_$(dfsg_version).orig.tar.xz $(pkg)-$(dfsg_version)
 	rm -rf $(pkg)-$(dfsg_version)
