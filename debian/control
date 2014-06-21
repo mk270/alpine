@@ -7,7 +7,6 @@ Build-Depends: debhelper (>= 9), libldap2-dev, libpam0g-dev, libncurses-dev,
  libssl-dev, autotools-dev, ca-certificates, automake, autoconf, libtool, libkrb5-dev,
  cdbs, aspell, dpkg-dev (>= 1.16.1~)
 Standards-Version: 3.9.3
-DM-Upload-Allowed: yes
 Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/ext-maint/alpine/trunk/?rev=0&sc=0
 Vcs-Svn: svn://svn.debian.org/svn/collab-maint/ext-maint/alpine/trunk/
 Homepage: http://sourceforge.net/projects/re-alpine/
@@ -70,7 +69,6 @@ Description: Simple text editor from Alpine, a text-based email client
 Package: pilot
 Architecture: any
 Section: utils
-Priority: optional
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple file browser from Alpine, a text-based email client
  "pilot" is a simple file browser from Alpine.  It is used in Alpine to
