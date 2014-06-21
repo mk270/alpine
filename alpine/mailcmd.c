@@ -7919,7 +7919,7 @@ select_by_text(MAILSTREAM *stream, MSGNO_S *msgmap, long int msgno, SEARCHSET **
 
 	      case 13 :			/* Match my addresses */
 		me++;
-		snprintf(sstring, sizeof(sstring), not ? _(dont_match_me) : _(match_me));
+		snprintf(sstring, sizeof(sstring), "%s", not ? _(dont_match_me) : _(match_me));
 		continue;
 
 	      case 14 :			/* Subject: default */
@@ -8995,7 +8995,7 @@ void cmd_quota (struct pine *state)
    sargs.proc.tool   = NULL;
    sargs.help.text   = h_quota_command;
    sargs.help.title  = NULL;
-   sargs.keys.menu   = &pine_quota_keymenu;
+   sargs.keys.menu   = NULL;
    setbitmap(sargs.keys.bitmap);
 
    scrolltool(&sargs);

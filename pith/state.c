@@ -98,7 +98,7 @@ new_pine_struct(void)
     p->atmts->description = NULL;
     p->low_speed       = 1;
     p->init_context    = -1;
-    msgno_init(&p->msgmap, 0L, SortArrival, 0);
+/*    msgno_init(&p->msgmap, 0L, SortArrival, 0);*/
     init_init_vars(p);
 
     return(p);
@@ -182,6 +182,9 @@ free_pine_struct(struct pine **pps)
 
     if((*pps)->hdr_colors)
       free_spec_colors(&(*pps)->hdr_colors);
+
+    if((*pps)->index_token_colors)
+      free_spec_colors(&(*pps)->index_token_colors);
 
     if((*pps)->keywords)
       free_keyword_list(&(*pps)->keywords);

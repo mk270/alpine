@@ -214,6 +214,7 @@ struct key_menu {
 #define	MC_CHK_RECENT	801
 #define	MC_DECRYPT	802
 #define MC_QUOTA	803
+#define MC_ADDHEADER	804
 
 /*
  * Some standard Key/Command Bindings 
@@ -560,7 +561,6 @@ extern struct key_menu	cancel_keymenu,
 			c_cfg_km,
 			c_sel_km,
 			c_fcc_km,
-			pine_quota_keymenu,
 			folder_km,
 			folder_sel_km,
 			folder_sela_km,

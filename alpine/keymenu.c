@@ -315,21 +315,6 @@ struct key context_fcc_keys[] =
 	WHEREIS_MENU};
 INST_KEY_MENU(c_fcc_km, context_fcc_keys);
 
-static struct key quota_keys[] =
-	{HELP_MENU,
-	NULL_MENU,
-	{"E","Exit",{MC_EXIT,3,{'e','i',ctrl('C')}},KS_EXITMODE},
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU,
-	NULL_MENU};
-INST_KEY_MENU(pine_quota_keymenu, quota_keys);
-
 struct key folder_keys[] =
        {HELP_MENU,
   	OTHER_MENU,
@@ -1170,7 +1155,7 @@ struct key color_pattern_keys[] =
 
 	HELP_MENU,
 	OTHER_MENU,
-	NULL_MENU,
+	{"I", N_("IndxHdr"), {MC_ADDHEADER,1,{'i'}}, KS_NONE},
 	NULL_MENU,
 	NULL_MENU,
 	NULL_MENU,
@@ -2467,7 +2452,7 @@ struct key color_setting_keys[] =
 
 	HELP_MENU,
 	OTHER_MENU,
-	NULL_MENU,
+	{"I", N_("IndxHdr"), {MC_ADDHEADER,1,{'i'}}, KS_NONE},
 	NULL_MENU,
 	NULL_MENU,
 	NULL_MENU,
@@ -2496,7 +2481,7 @@ struct key custom_color_setting_keys[] =
 
         HELP_MENU,
 	OTHER_MENU,
-	NULL_MENU,
+	{"I", N_("IndxHdr"), {MC_ADDHEADER,1,{'i'}}, KS_NONE},
 	NULL_MENU,
 	{"D", N_("DeleteHdr"), {MC_DELETE,1,{'d'}}, KS_NONE},
 	/* TRANSLATORS: shuffle headers (change the order of headers) */
@@ -2542,7 +2527,7 @@ struct key kw_color_setting_keys[] =
 
 	HELP_MENU,
 	OTHER_MENU,
-	NULL_MENU,
+	{"I", N_("IndxHdr"), {MC_ADDHEADER,1,{'i'}}, KS_NONE},
 	NULL_MENU,
 	NULL_MENU,
 	NULL_MENU,

@@ -139,6 +139,9 @@ struct pine {
     unsigned     def_sort_rev:1;	/* true if reverse sort is default  */ 
     unsigned     restricted:1;
 
+    unsigned     tcptimeout:1;		/* a tcp timeout is in progress  */
+    unsigned     read_bail:1;		/* we are coming back from a read bail! */
+
     unsigned	 save_msg_rule:5;
     unsigned	 fcc_rule:3;
     unsigned	 ab_sort_rule:3;
@@ -242,6 +245,7 @@ struct pine {
     char       **feat_list_back_compat;
 
     SPEC_COLOR_S *hdr_colors;		/* list of configed colors for view */
+    SPEC_COLOR_S *index_token_colors;	/* list of configed colors for index */
 
     short	 init_context;
 
@@ -285,6 +289,8 @@ struct pine {
 
     SortOrder    def_sort,	/* Default sort type */
 		 sort_types[22];
+
+    int		 preserve;
 
     int          last_expire_year, last_expire_month;
 
