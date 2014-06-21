@@ -1,35 +1,33 @@
 #!/usr/bin/make -f
-# debian/rules for alpine using cdbs
-# Andreas Tille <tille@debian.org>, GPL
+# debian/rules for alpine
 
-install/alpine-pico::
-# Rename pico to pico.alpine.
-# alpine-pico.install puts this in the alpine-pico package.
-	mv pico/pico pico/pico.alpine
-	mv doc/pico.1 doc/pico.alpine.1
+override_dh_auto_configure:
+	dh_auto_configure -- --host=$(DEB_HOST_GNU_TYPE) \
+			     --build=$(DEB_BUILD_GNU_TYPE) \
+			     --prefix=/usr \
+			     --mandir=\$${prefix}/share/man \
+			     --infodir=\$${prefix}/share/info \
+			     --with-system-pinerc=/etc/pine.conf \
+			     --with-system-fixed-pinerc=/etc/pinerc.fixed \
+			     --with-passfile=.pine-passfile \
+			     --with-smtp-msa=/usr/sbin/sendmail \
+			     --with-debug-level=0 \
+			     --without-tcl \
+			     --with-krb5 \
+			     --with-krb5-dir=/usr
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/autotools.mk
+override_dh_install:
+	dh_install --list-missing
+	# Rename pico to pico.alpine.
+	# alpine-pico.install puts this in the alpine-pico package.
+	mv debian/alpine-pico/usr/bin/pico debian/alpine-pico/usr/bin/pico.alpine
 
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-export DEB_CFLAGS_MAINT_APPEND = -Wall
-include /usr/share/dpkg/buildflags.mk
+override_dh_installman:
+	dh_installman
+	mv debian/alpine-pico/usr/share/man/man1/pico.1 debian/alpine-pico/usr/share/man/man1/pico.alpine.1
 
+override_dh_strip:
+	dh_strip --dbg-package=alpine-dbg
 
-DEB_CONFIGURE_EXTRA_FLAGS := \
-	--host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
-        --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info \
-        CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs,--as-needed" --with-krb5 \
-	--with-system-pinerc=/etc/pine.conf \
-	--with-system-fixed-pinerc=/etc/pinerc.fixed \
-	--with-debug-level=0 \
-	--with-spellcheck-prog=aspell \
-	--without-tcl \
-	--with-passfile=.pine-passfile \
-	--with-smtp-msa=/usr/sbin/sendmail \
-	--with-krb5-dir=/usr
-
-# install README only into alpine package
-DEB_INSTALL_DOCS_ALL :=
-DEB_INSTALL_DOCS_alpine := README
-
+%:
+	dh $@
