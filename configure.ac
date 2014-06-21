@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 dnl /* ========================================================================
+dnl  * Copyright 2013 Eduardo Chappa
 dnl  * Copyright 2006-2008 University of Washington
 dnl  *
 dnl  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,16 +13,16 @@ dnl  *
 dnl  * ========================================================================
 dnl  */
 
-AC_PREREQ([2.57])
+AC_PREREQ([2.69])
 
-AC_REVISION([$Id: configure.ac 1266 2009-07-14 18:39:12Z hubert@u.washington.edu $])
+AC_REVISION([Rev:2 by chappa@washington.edu])
 
 dnl Alpine Version Number is in $srcdir/VERSION
-AC_INIT(alpine, m4_normalize(m4_include([VERSION])), [alpine-contact@u.washington.edu])
+AC_INIT([alpine],[m4_normalize(m4_include(VERSION))],[chappa@washington.edu])
 
 AC_CONFIG_SRCDIR([include/system.h])
 AC_CONFIG_HEADERS([include/config.h])
-
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([foreign nostdinc])
 
 AM_MAINTAINER_MODE
@@ -44,7 +45,7 @@ AC_PROG_MAKE_SET
 AC_PROG_LN_S
 AC_PROG_AWK
 AC_PROG_RANLIB
-AC_PROG_LIBTOOL
+LT_INIT
 
 AC_PATH_PROG(AR, ar, ar)
 AC_PATH_PROG(RM, rm, rm)
@@ -61,7 +62,7 @@ AM_GNU_GETTEXT([external])
 dnl enable dmalloc per http://dmalloc.com
 dnl NOTE: does not check c-client
 AC_MSG_CHECKING([option: dmalloc enabled])
-AC_ARG_ENABLE(dmalloc, AC_HELP_STRING([--enable-dmalloc],[Enable dmalloc debugging]))
+AC_ARG_ENABLE(dmalloc, AS_HELP_STRING([--enable-dmalloc],[Enable dmalloc debugging]))
 if test x$enable_dmalloc = "xyes" ; then
   AC_MSG_RESULT([yes])
 else
@@ -69,7 +70,7 @@ else
 fi
 
 AC_ARG_WITH(dmalloc-dir,
-  AC_HELP_STRING([--with-dmalloc-dir=DIR], [Root of dmalloc lib/include path]),
+  AS_HELP_STRING([--with-dmalloc-dir=DIR],[Root of dmalloc lib/include path]),
   [
     if test "x$withval" != "xno" ; then
       enable_dmalloc = "yes"
@@ -84,7 +85,7 @@ fi
 
 localedir="\${datadir}/locale"
 AC_ARG_WITH(localedir,
-  AC_HELP_STRING([--with-localedir=DIR], [Name of gettext locale directory]),
+  AS_HELP_STRING([--with-localedir=DIR],[Name of gettext locale directory]),
   [
     case $withval in
       yes)
@@ -103,7 +104,7 @@ case "$host" in
   *darwin*)
     dnl OS X Universal Binary Support
     AC_ARG_ENABLE(osx-universal-binaries,
-      AC_HELP_STRING([--enable-osx-universal-binaries],[Produce universal binaries under OS X [[default=no]]]))
+      AS_HELP_STRING([--enable-osx-universal-binaries],[Produce universal binaries under OS X [[default=no]]]))
     if test "x$enable_osx_universal_binaries" = "xyes" ; then
       if test "x$enable_dependency_tracking" != xno ; then
 	AC_MSG_ERROR([--enable-osx-universal-binary requires --disable-dependency-tracking.
@@ -128,7 +129,7 @@ Please re-run configure with these options:
 esac
 
 AC_ARG_WITH(include-path,
-  AC_HELP_STRING([--with-include-path=PATHS], [Colon-separated list of directories used for include file search]),
+  AS_HELP_STRING([--with-include-path=PATHS],[Colon-separated list of directories used for include file search]),
   [
     case $withval in
       no)
@@ -144,7 +145,7 @@ AC_ARG_WITH(include-path,
   ])
 
 AC_ARG_WITH(lib-path,
-  AC_HELP_STRING([--with-lib-path=PATHS], [Colon-separated list of directories used for library search]),
+  AS_HELP_STRING([--with-lib-path=PATHS],[Colon-separated list of directories used for library search]),
   [
     case $withval in
       no)
@@ -160,7 +161,7 @@ AC_ARG_WITH(lib-path,
   ])
 
 AC_ARG_WITH(pubcookie,
-  AC_HELP_STRING([--with-pubcookie], [Include support for UW-Pubcookie Web Authentication]),
+  AS_HELP_STRING([--with-pubcookie],[Include support for UW-Pubcookie Web Authentication]),
   [
     if test "x$withval" != "xno" ; then
       WEB_PUBCOOKIE_BUILD=web/src/pubcookie
@@ -169,7 +170,7 @@ AC_ARG_WITH(pubcookie,
 
 
 AC_ARG_WITH(web-bin,
-  AC_HELP_STRING([--with-web-bin=PATH], [Directory to hold Web Alpine component binary files]),
+  AS_HELP_STRING([--with-web-bin=PATH],[Directory to hold Web Alpine component binary files]),
   [
     case "$withval" in
       no)
@@ -184,7 +185,7 @@ AC_ARG_WITH(web-bin,
 
 dnl disable debug, turned on by default
 AC_MSG_CHECKING([option: debugging is enabled])
-AC_ARG_ENABLE(debug, AC_HELP_STRING([--disable-debug],[Exclude debug messages from source]))
+AC_ARG_ENABLE(debug, AS_HELP_STRING([--disable-debug],[Exclude debug messages from source]))
 if test x$enable_debug != "xno" ; then
   AM_CFLAGS="$AM_CFLAGS -g"
   AC_DEFINE([DEBUG], [1], [Compile in debugging])
@@ -197,7 +198,7 @@ fi
 
 dnl disable optimization, on by default
 AC_MSG_CHECKING([option: optimization is enabled])
-AC_ARG_ENABLE(optimization, AC_HELP_STRING([--disable-optimization],[Exclude optimizing compiler flags]))
+AC_ARG_ENABLE(optimization, AS_HELP_STRING([--disable-optimization],[Exclude optimizing compiler flags]))
 if test x$enable_optimization != "xno" ; then
   AC_MSG_RESULT([yes])
 else
@@ -208,7 +209,7 @@ fi
 
 dnl disable mouse support
 AC_MSG_CHECKING([option: mouse support enabled])
-AC_ARG_ENABLE(mouse, AC_HELP_STRING([--disable-mouse], [Disable mouse support]))
+AC_ARG_ENABLE(mouse, AS_HELP_STRING([--disable-mouse],[Disable mouse support]))
 if test x$enable_mouse != "xno" ; then
   AC_DEFINE([MOUSE], [], [Compile in mouse support])
   AC_MSG_RESULT([yes])
@@ -218,7 +219,7 @@ fi
 
 dnl enable quotas
 AC_MSG_CHECKING([option: quotas enabled])
-AC_ARG_ENABLE(quotas, AC_HELP_STRING([--enable-quotas],[Enable disk quota checking on startup]))
+AC_ARG_ENABLE(quotas, AS_HELP_STRING([--enable-quotas],[Enable disk quota checking on startup]))
 if test x$enable_quotas = "xyes" ; then
   AC_DEFINE([USE_QUOTAS], [], [Compile in quota check on startup])
   AC_MSG_RESULT([yes])
@@ -227,7 +228,7 @@ else
 fi
 
 AC_MSG_CHECKING([option: From changing enabled])
-AC_ARG_ENABLE(from_changing, AC_HELP_STRING([--disable-from-changing],[Disallow users changing From addresss]))
+AC_ARG_ENABLE(from_changing, AS_HELP_STRING([--disable-from-changing],[Disallow users changing From addresss]))
 if test x$enable_from_changing != "xno" ; then
   AC_MSG_RESULT([yes])
 else
@@ -237,7 +238,7 @@ fi
 
 dnl enable background posting support
 AC_MSG_CHECKING([option: background post enabled])
-AC_ARG_ENABLE(background-post, AC_HELP_STRING([--disable-background-post],[Disable background posting]))
+AC_ARG_ENABLE(background-post, AS_HELP_STRING([--disable-background-post],[Disable background posting]))
 if test x$enable_background_post != "xno" ; then
   AC_DEFINE([BACKGROUND_POST], [], [Enable background posting support])
   AC_MSG_RESULT([yes])
@@ -247,7 +248,7 @@ fi
 
 dnl enable keyboard locking support
 AC_MSG_CHECKING([option: keyboard lock enabled])
-AC_ARG_ENABLE(keyboard-lock, AC_HELP_STRING([--disable-keyboard-lock],[Disable keyboard locking]))
+AC_ARG_ENABLE(keyboard-lock, AS_HELP_STRING([--disable-keyboard-lock],[Disable keyboard locking]))
 if test x$enable_keyboard_lock != "xno" ; then
   AC_DEFINE([KEYBOARD_LOCK], [], [Enable keyboard lock support])
   AC_MSG_RESULT([yes])
@@ -257,7 +258,7 @@ fi
 
 dnl enable from encoding support
 AC_MSG_CHECKING([option: from encoding enabled])
-AC_ARG_ENABLE(from-encoding, AC_HELP_STRING([--enable-from-encoding],[Enable From encoding in sent messages]))
+AC_ARG_ENABLE(from-encoding, AS_HELP_STRING([--enable-from-encoding],[Enable From encoding in sent messages]))
 if test x$enable_from_encoding = "xyes" ; then
   AC_DEFINE([ENCODE_FROMS], [], [Enable From address encoding in sent messages])
   AC_MSG_RESULT([yes])
@@ -268,7 +269,7 @@ fi
 dnl OPTION: name of local submission agent
 dnl         Might not be sendmail, but it MUST speak SMTP on stdin/stdout
 AC_ARG_WITH(smtp-msa,
-  AC_HELP_STRING([--with-smtp-msa=PATH],[Local Mail Submission Agent (sendmail)]),
+  AS_HELP_STRING([--with-smtp-msa=PATH],[Local Mail Submission Agent (sendmail)]),
     [
       case "$withval" in
 	no)
@@ -291,7 +292,7 @@ fi
 dnl OPTION: local msa arguments
 smtp_msa_flags="-bs -odb -oem"
 AC_ARG_WITH(smtp-msa-flags,
-  AC_HELP_STRING([--with-smtp-msa-flags=FLAGS],[MSA flags for SMTP on stdin/stdout (-bs -odb -oem)]),
+  AS_HELP_STRING([--with-smtp-msa-flags=FLAGS],[MSA flags for SMTP on stdin/stdout (-bs -odb -oem)]),
   [
     if test "x$withval" != "xno" ; then
       smtp_msa_flags=$withval
@@ -302,7 +303,7 @@ AC_DEFINE_UNQUOTED([SENDMAILFLAGS], "$smtp_msa_flags", [Local MSA flags for SMTP
 dnl OPTION: name of local news posting agent and flags
 npa="inews"
 AC_ARG_WITH(npa,
-  AC_HELP_STRING([--with-npa=PATH],[Posting agent when no nntp-servers defined (inews)]),
+  AS_HELP_STRING([--with-npa=PATH],[Posting agent when no nntp-servers defined (inews)]),
     [
       case "$withval" in
 	no)
@@ -321,7 +322,7 @@ AC_ARG_WITH(npa,
 
 npa_flags="-h"
 AC_ARG_WITH(npa-flags,
-  AC_HELP_STRING([--with-npa-flags=FLAGS],[Flags to allow posting via local agent (-h)]),
+  AS_HELP_STRING([--with-npa-flags=FLAGS],[Flags to allow posting via local agent (-h)]),
   [
     if test "x$withval" != "xno" ; then
       npa_flags=$withval
@@ -333,7 +334,7 @@ fi
 
 dnl OPTION: password changing program
 AC_ARG_WITH(password-prog,
-  AC_HELP_STRING([--with-password-prog=PATH],[Password change program (/bin/passwd)]),
+  AS_HELP_STRING([--with-password-prog=PATH],[Password change program (/bin/passwd)]),
     [
       case "$withval" in
 	no)
@@ -355,7 +356,7 @@ fi
 
 dnl OPTION: basic spell checking program
 AC_ARG_WITH(simple-spellcheck,
-  AC_HELP_STRING([--with-simple-spellcheck=PROG],[Spellcheck program reads stdin, emits misspellings on stdout]),
+  AS_HELP_STRING([--with-simple-spellcheck=PROG],[Spellcheck program reads stdin, emits misspellings on stdout]),
     [
       if test "x$withval" != "xno" ; then
         SPELLPROG=$withval
@@ -395,7 +396,7 @@ fi
 
 dnl OPTION: interactive spell checking program
 AC_ARG_WITH(interactive-spellcheck,
-  AC_HELP_STRING([--with-interactive-spellcheck=PROG],[Interactive, filewise spell checker]),
+  AS_HELP_STRING([--with-interactive-spellcheck=PROG],[Interactive, filewise spell checker]),
     [
       if test "x$withval" != "xno" ; then
         ISPELLPROG=$withval
@@ -442,7 +443,7 @@ case "$prefix" in
   *) dpv=${prefix}/lib/pine.conf ;;
 esac
 AC_ARG_WITH(system-pinerc,
-  AC_HELP_STRING([--with-system-pinerc=VALUE], [System pinerc (/usr/local/lib/pine.conf)]),
+  AS_HELP_STRING([--with-system-pinerc=VALUE],[System pinerc (/usr/local/lib/pine.conf)]),
     [
       case "$withval" in
 	no)
@@ -465,7 +466,7 @@ case "$prefix" in
   *) dpv=${prefix}/lib/pine.conf.fixed ;;
 esac
 AC_ARG_WITH(system-fixed-pinerc,
-  AC_HELP_STRING([--with-system-fixed-pinerc=VALUE], [System fixed pinerc (/usr/local/lib/pine.conf.fixed)]),
+  AS_HELP_STRING([--with-system-fixed-pinerc=VALUE],[System fixed pinerc (/usr/local/lib/pine.conf.fixed)]),
     [
       case "$withval" in
 	no)
@@ -479,13 +480,37 @@ AC_ARG_WITH(system-fixed-pinerc,
     ])
 AC_DEFINE_UNQUOTED(SYSTEM_PINERC_FIXED, "$dpv", [System fixed pinerc])
 
+dnl OPTION: local support information, file that contains information on
+dnl 	    how to contact local support for Alpine.
+dnl NOTE: historically we used /lib for the config dir.
+dnl       don't ask, it was a long time ago. but, we can't
+dnl       change it now without breaking compatibility
+case "$prefix" in
+  NONE) dpv=/usr/local/lib/pine.info ;;
+  *) dpv=${prefix}/lib/pine.info ;;
+esac
+AC_ARG_WITH(local-support-info,
+  AS_HELP_STRING([--with-local-support-info=VALUE],[Local Support Info File (/usr/local/lib/pine.info)]),
+    [
+      case "$withval" in
+	no)
+	  ;;
+	yes)
+	  ;;
+	*)
+	  dpv=$withval
+	  ;;
+      esac
+    ])
+AC_DEFINE_UNQUOTED(SYSTEM_PINE_INFO_PATH, "$dpv", [Local Support Info File])
+
 dnl Function to simplify setting alpine/pico defaults
 dnl usage: PINEVAR(configure-name, definition-name, definition-value, help)
 AC_DEFUN([PINEVAR],
   [
     dpv=$3
     AC_ARG_WITH($1,
-      AC_HELP_STRING(--with-$1=VALUE, [$4 ($3)]),
+      AS_HELP_STRING([--with-$1=VALUE],[$4 ($3)]),
       [
 	if test "x$withval" != "xno" ; then
 	  dpv=$withval
@@ -500,7 +525,7 @@ AC_DEFUN([PINEVAR_UNQUOTED],
   [
     dpv=$3
     AC_ARG_WITH($1,
-      AC_HELP_STRING(--with-$1=VALUE, [$4 ($3)]),
+      AS_HELP_STRING([--with-$1=VALUE],[$4 ($3)]),
       [
 	if test "x$withval" != "xno" ; then
 	  dpv=$withval
@@ -558,7 +583,7 @@ PINEVAR_UNQUOTED(default-printer, DF_DEFAULT_PRINTER, [ANSI_PRINTER], [Default p
 
 dnl set PASSFILE?
 AC_ARG_WITH(passfile,
-  AC_HELP_STRING([--with-passfile=FILENAME],[Password cache file (NOT secure, NOT recommended)]),
+  AS_HELP_STRING([--with-passfile=FILENAME],[Password cache file (NOT secure, NOT recommended)]),
     [
       case "$withval" in
 	no)
@@ -573,14 +598,14 @@ AC_ARG_WITH(passfile,
 
 dnl os-specific credential cache?
 AC_ARG_WITH(local-password-cache,
- AC_HELP_STRING([--without-local-password-cache],[Disable OS-specific password cache, if supported]),
+ AS_HELP_STRING([--without-local-password-cache],[Disable OS-specific password cache, if supported]),
    [
      alpine_os_credential_cache=$withval
    ])
 
 dnl Particular os-specific credential cache?
 AC_ARG_WITH(local-password-cache-method,
- AC_HELP_STRING([--with-local-password-cache-method],[OS-specific credential cache (OSX=APPLEKEYCHAIN, Windows=WINCRED)]),
+ AS_HELP_STRING([--with-local-password-cache-method],[OS-specific credential cache (OSX=APPLEKEYCHAIN, Windows=WINCRED)]),
    [
      alpine_os_credential_cache_method=$withval
    ])
@@ -599,7 +624,7 @@ fi
 
 dnl set DF_SSHPATH?
 AC_ARG_WITH(default-sshpath,
-  AC_HELP_STRING([--with-default-sshpath=FILENAME],[set default value of ssh command path (defining should cause ssh to be preferred to rsh)]),
+  AS_HELP_STRING([--with-default-sshpath=FILENAME],[set default value of ssh command path (defining should cause ssh to be preferred to rsh)]),
     [
       case "$withval" in
 	no)
@@ -614,7 +639,7 @@ AC_ARG_WITH(default-sshpath,
 
 dnl set DF_SSHCMD?
 AC_ARG_WITH(default-sshcmd,
-  AC_HELP_STRING([--with-default-sshcmd=PERCENT_S_STRING],[set default value of ssh command string (usually "%s %s -l %s exec /etc/r%sd")]),
+  AS_HELP_STRING([--with-default-sshcmd=PERCENT_S_STRING],[set default value of ssh command string (usually "%s %s -l %s exec /etc/r%sd")]),
     [
       case "$withval" in
 	no)
@@ -630,7 +655,7 @@ AC_ARG_WITH(default-sshcmd,
 dnl Include SSL?
 dnl Set SSLDIR for c-client make
 AC_ARG_WITH(ssl,
-  AC_HELP_STRING([--without-ssl],[Disable SSL support (OpenSSL)]),
+  AS_HELP_STRING([--without-ssl],[Disable SSL support (OpenSSL)]),
   [ with_ssl=$withval ])
 
 if test "x$with_ssl" = "xno" ; then
@@ -638,7 +663,7 @@ if test "x$with_ssl" = "xno" ; then
 else
   dnl preload c-client default locations/options
   case $host in
-    *-linux-gnu)
+    *-linux-gnu*)
       if test -f /etc/fedora-release -o -f /etc/redhat-release -o -f /etc/redhat_version ; then  
         alpine_SSLTYPE="nopwd"
 	if test -d /etc/pki/tls ; then  
@@ -693,7 +718,7 @@ else
   esac
 
   AC_ARG_WITH(ssl-dir,
-    AC_HELP_STRING([--with-ssl-dir=DIR], [Root of SSL lib/include path]),
+    AS_HELP_STRING([--with-ssl-dir=DIR],[Root of SSL lib/include path]),
     [
       if test "x$withval" != "xno" ; then
 	alpine_SSLDIR=$withval
@@ -701,7 +726,7 @@ else
     ])
 
   AC_ARG_WITH(ssl-certs-dir,
-    AC_HELP_STRING([--with-ssl-certs-dir=DIR], [Path to SSL certificate directory]),
+    AS_HELP_STRING([--with-ssl-certs-dir=DIR],[Path to SSL certificate directory]),
     [
       if test "x$withval" != "xno" ; then
 	alpine_SSLCERTS=$withval
@@ -709,7 +734,7 @@ else
     ])
 
   AC_ARG_WITH(ssl-include-dir,
-    AC_HELP_STRING([--with-ssl-include-dir=DIR], [SSL include file path]),
+    AS_HELP_STRING([--with-ssl-include-dir=DIR],[SSL include file path]),
     [
       if test "x$withval" != "xno" ; then
 	alpine_SSLINCLUDE=$withval
@@ -717,7 +742,7 @@ else
     ])
 
   AC_ARG_WITH(ssl-lib-dir,
-    AC_HELP_STRING([--with-ssl-lib-dir=DIR], [SSL library path]),
+    AS_HELP_STRING([--with-ssl-lib-dir=DIR],[SSL library path]),
     [
       if test "x$withval" != "xno" ; then
 	alpine_SSLLIB=$withval
@@ -739,7 +764,7 @@ fi
 dnl Include Kerberos?
 dnl Set GSSDIR for c-client make
 AC_ARG_WITH(krb5,
-  AC_HELP_STRING([--without-krb5],[Disable Kerberos support]),
+  AS_HELP_STRING([--without-krb5],[Disable Kerberos support]),
   [ with_krb5=$withval ])
 
 if test "x$with_krb5" = "xno" ; then
@@ -748,7 +773,7 @@ else
   alpine_GSSTYPE=
 
   AC_ARG_WITH(krb5-dir,
-    AC_HELP_STRING([--with-krb5-dir=DIR], [Root of Kerberos lib/include path]),
+    AS_HELP_STRING([--with-krb5-dir=DIR],[Root of Kerberos lib/include path]),
     [
       if test "x$withval" != "xno" ; then
 	CPPFLAGS="$CPPFLAGS -I${withval}/include"
@@ -757,7 +782,7 @@ else
     ])
 
   AC_ARG_WITH(krb5-include-dir,
-    AC_HELP_STRING([--with-krb5-include-dir=DIR], [Kerberos include file path]),
+    AS_HELP_STRING([--with-krb5-include-dir=DIR],[Kerberos include file path]),
     [
       if test "x$withval" != "xno" ; then
 	CPPFLAGS="$CPPFLAGS -I$withval"
@@ -765,7 +790,7 @@ else
     ])
 
   AC_ARG_WITH(krb5-lib-dir,
-    AC_HELP_STRING([--with-krb5-lib-dir=DIR], [Kerberos library path]),
+    AS_HELP_STRING([--with-krb5-lib-dir=DIR],[Kerberos library path]),
     [
       if test "x$withval" != "xno" ; then
 	LDFLAGS="$LDFLAGS -L$withval"
@@ -775,7 +800,7 @@ fi
 
 dnl Include LDAP?
 AC_ARG_WITH(ldap,
-  AC_HELP_STRING([--without-ldap],[Disable LDAP query support]),
+  AS_HELP_STRING([--without-ldap],[Disable LDAP query support]),
   [ with_ldap=$withval ])
 
 if test "x$with_ldap" = "xno" ; then
@@ -786,7 +811,7 @@ else
 
   alpine_with_ldap=yes
   AC_ARG_WITH(ldap-dir,
-    AC_HELP_STRING([--with-ldap-dir=DIR], [Root of LDAP lib/include path]),
+    AS_HELP_STRING([--with-ldap-dir=DIR],[Root of LDAP lib/include path]),
     [
       if test "x$withval" != "xno" ; then 
 	CPPFLAGS="$CPPFLAGS -I${withval}/include"
@@ -795,7 +820,7 @@ else
     ])
 
   AC_ARG_WITH(ldap-include-dir,
-    AC_HELP_STRING([--with-ldap-include-dir=DIR], [Directory containing LDAP include files]),
+    AS_HELP_STRING([--with-ldap-include-dir=DIR],[Directory containing LDAP include files]),
     [
       if test "x$withval" != "xno" ; then
 	CPPFLAGS="$CPPFLAGS -I$withval"
@@ -803,7 +828,7 @@ else
     ])
 
   AC_ARG_WITH(ldap-lib-dir,
-    AC_HELP_STRING([--with-ldap-lib-dir=DIR], [LDAP library path]),
+    AS_HELP_STRING([--with-ldap-lib-dir=DIR],[LDAP library path]),
     [
       if test "x$withval" != "xno" ; then
 	LDFLAGS="$LDFLAGS -L$withval"
@@ -813,12 +838,12 @@ fi
 
 dnl Include SMIME?
 AC_ARG_WITH(smime,
-  AC_HELP_STRING([--without-smime],[Disable S/MIME]),
+  AS_HELP_STRING([--without-smime],[Disable S/MIME]),
   [ with_smime=$withval ])
 
 dnl Include TCL?
 AC_ARG_WITH(tcl,
-  AC_HELP_STRING([--without-tcl],[Disable TCL, thus Web Alpine support]),
+  AS_HELP_STRING([--without-tcl],[Disable TCL, thus Web Alpine support]),
   [ with_tcl=$withval ])
 
 if test "x$with_tcl" = "xno" ; then
@@ -826,14 +851,14 @@ if test "x$with_tcl" = "xno" ; then
   AC_MSG_NOTICE([Excluding TCL Support, and thus Web Alpine Support])
 else
   AC_ARG_WITH(tcl-lib,
-    AC_HELP_STRING([--with-tcl-lib=LIBRARY], [Specific TCL Library, like \"tcl8.4\"]),
+    AS_HELP_STRING([--with-tcl-lib=LIBRARY],[Specific TCL Library, like \"tcl8.5\"]),
     [
       if test "x$withval" != "xno" ; then 
 	alpine_TCLLIB=$withval
       fi
     ])
   AC_ARG_WITH(tcl-include,
-    AC_HELP_STRING([--with-tcl-include=DIR], [Directory containing TCL include files]),
+    AS_HELP_STRING([--with-tcl-include=DIR],[Directory containing TCL include files]),
     [
       if test "x$withval" != "xno" ; then
         CPPFLAGS="$CPPFLAGS -I$withval"
@@ -843,15 +868,15 @@ else
 fi
 
 AC_ARG_WITH(supplied-regex,
-  AC_HELP_STRING([--with-supplied-regex],[Use regex library supplied with alpine]),
+  AS_HELP_STRING([--with-supplied-regex],[Use regex library supplied with alpine]),
   [ alpine_REGEX=$withval ])
 
 AC_ARG_WITH(pthread,
-  AC_HELP_STRING([--without-pthread],[Do NOT test for nor build with POSIX thread support]),
+  AS_HELP_STRING([--without-pthread],[Do NOT test for nor build with POSIX thread support]),
   [ with_pthread=$withval ])
 
 AC_ARG_WITH(system-mail-directory,
-  AC_HELP_STRING([--with-system-mail-directory=DIR], [Directory where local mail is delivered]),
+  AS_HELP_STRING([--with-system-mail-directory=DIR],[Directory where local mail is delivered]),
   [
     if test "x$withval" != "xno" ; then
       alpine_with_local_maildir="$withval"
@@ -859,7 +884,7 @@ AC_ARG_WITH(system-mail-directory,
   ])
 
 AC_ARG_WITH(c-client-target,
-  AC_HELP_STRING([--with-c-client-target=TARGET], [IMAP build target (see imap/Makefile)]),
+  AS_HELP_STRING([--with-c-client-target=TARGET],[IMAP build target (see imap/Makefile)]),
   [
     if test "x$withval" != "xno" ;then
       alpine_with_c_client_target="$withval"
@@ -867,453 +892,8 @@ AC_ARG_WITH(c-client-target,
   ])
 
 
-dnl Without IPv6?
-AC_ARG_WITH(ipv6,
-  AC_HELP_STRING([--without-ipv6],[Disable IPv6, primarily to work around resolver problems]),
-  [ with_ipv6=$withval ])
-
-if test "x$with_ipv6" = "xno" ; then
-  AC_MSG_NOTICE([Excluding IPv6 Support])
-  c_client_specials="${c_client_specials}IP6=4 "
-  c_client_ip6="true"
-else
-  c_client_ip6="touch imap/ip6"
-fi
-
-
-dnl CHECK LIBRARIES
-
-if test x$enable_dmalloc = "xyes" ; then
-  if test "x$with_pthread" = "xyes" ; then
-    dmalloc_lib=dmallocth
-  else
-    dmalloc_lib=dmalloc
-  fi
-
-  AC_CHECK_LIB($dmalloc_lib,dmalloc_shutdown,,
-    [
-      AC_ERROR([$dmalloc_lib requested, but -ldmalloc not found])
-    ])
-fi
-
-dnl which terminal cabability database
-AC_CHECK_LIB(tinfo, setupterm,
-  [
-    alpine_termdata=info
-    LIBS="$LIBS -ltinfo"
-  ],
-  [
-    AC_CHECK_LIB(ncurses, setupterm,
-      [
-        alpine_termdata=info
-        LIBS="$LIBS -lncurses"
-      ],
-      [
-        AC_CHECK_LIB(curses, setupterm,
-          [
-            alpine_termdata=info
-            LIBS="$LIBS -lcurses"
-          ],
-          [
-            AC_CHECK_LIB(termlib, tgetent,
-              [
-                alpine_termdata=cap
-                LIBS="$LIBS -ltermlib"
-              ],
-              [
-                AC_CHECK_LIB(termcap, tgetent,
-                  [
-                    alpine_termdata=cap
-                    LIBS="$LIBS -ltermcap"
-                  ],
-                  [
-                    AC_ERROR([Terminfo/termcap not found])
-                  ])
-              ])
-          ])
-      ])
-  ])
-case $alpine_termdata in
-  info)
-    AC_DEFINE(HAS_TERMINFO, [1], [Define if systems uses terminfo terminal database])
-    ;;
-  cap)
-    AC_DEFINE(HAS_TERMCAP, [1], [Define if systems uses termcap terminal database])
-    ;;
-esac
-
-dnl provide LDAP support?
-if test "$alpine_with_ldap" = "yes" ; then
-  alpine_has_ldap=
-  AC_CHECK_LIB(lber, ber_alloc,
-    [
-      LIBS="$LIBS -llber"
-    ])
-  AC_SEARCH_LIBS(ldap_init,ldap,
-    [
-      alpine_has_ldap=yes
-    ],
-    [
-      AC_SEARCH_LIBS(ldap_open,ldap,
-	[
-	  alpine_has_ldap=yes
-	])
-    ])
-
-  if test "$alpine_has_ldap" = "yes" ; then
-    AC_MSG_NOTICE([Including LDAP Support])
-    AC_DEFINE([ENABLE_LDAP], [], [Enable LDAP query support])
-
-    dnl we use deprecated functions (ldap_get_values)
-    dnl OpenLDAP 2.3.x doesn't define LDAP_DEPRECATED by default like 2.2.x
-    AC_MSG_CHECKING([if we should define LDAP_DEPRECATED])
-    AC_RUN_IFELSE(
-	[AC_LANG_SOURCE([[
-#include <stdio.h>
-#include <string.h>
-#include <ldap.h>
-int main(void) {
-
-	if (LDAP_VENDOR_VERSION >= 20300)
-		exit(0);
-
-	exit(2);
-}
-	]])],
-	[
-		AC_MSG_RESULT(yes)
-		AC_DEFINE(LDAP_DEPRECATED, 1,
-		[Define if you use OpenLDAP 2.3.x deprecated functions])
-
-	],
-	[
-		AC_MSG_RESULT(no)
-	],
-	[
-		AC_MSG_WARN([cross compiling: not checking])
-	]
-    )
-
-  else
-    AC_MSG_NOTICE([Cannot find LDAP functions!  Excluding LDAP support.])
-  fi
-fi
-
-dnl provide SSL support?
-if test "x$alpine_SSLTYPE" != "xnone" ; then
-  AC_SEARCH_LIBS(SSL_library_init,ssl,
-    [
-      LIBS="$LIBS -lssl"
-    ])
-  if test "x$alpine_SSLTYPE" = "xnone" ; then
-    AC_MSG_NOTICE([OpenSSL libraries NOT found])
-  else
-    AC_MSG_NOTICE([OpenSSL libraries FOUND])
-  fi
-fi
-
-dnl provide KRB5 support?
-if test "x$alpine_GSSTYPE" != "xnone" ; then
-  AC_SEARCH_LIBS(gss_init_sec_context,gss gssapi gssapi_krb5,
-    [
-      dnl MIT-based?
-      AC_CHECK_HEADER([gssapi/gssapi_generic.h],,
-	[
-	  if test ! -d /usr/kerberos/include ; then
-	    alpine_GSSTYPE="none"
-	    alpine_gss_none_reason="header files not found"
-	  fi
-	])
-    ],
-    [
-      alpine_GSSTYPE="none"
-      alpine_gss_none_reason="libraries not found"
-    ])
-  if test -n "$alpine_gss_none_reason" ; then
-    AC_MSG_NOTICE([NOT including Kerberos Support: $alpine_gss_none_reason])
-  fi
-fi
-
-dnl check for tcl libraries for Web Alpine (HACKY)
-if test -n "$WEB_BUILD" ; then
-  AC_SEARCH_LIBS([Tcl_Eval],[$alpine_TCLLIB tcl8.4 tcl8.3 tcl84 tcl83 tcl],,
-    [
-      WEB_BUILD=
-    ])
-
-  dnl look for header file
-  if test -n "$alpine_TCLINC" ; then
-    AC_CHECK_HEADER($alpine_TCLINC,,
-      [
-	WEB_BUILD=
-      ])
-    if test -z "$WEB_BUILD" ; then
-      AC_MSG_NOTICE([Tcl Include file NOT found])
-    fi
-  else
-    AC_CHECK_HEADER(tcl.h,,
-      [
-	for dir in tcl8.4 tcl8.3 tcl84 tcl83 ; do
-	  AC_CHECK_FILE([/usr/include/$dir/tcl.h],
-	    [
-	      found=yes
-	    ])
-	  if test "$found" = "yes" ; then
-	    CPPFLAGS="$CPPFLAGS -I/usr/include/$dir"
-	    break
-	  fi
-	done
-      ])
-  fi
-fi
-
-dnl Local or supplied regex?
-if test x$alpine_REGEX != "xyes" ; then
-  AC_SEARCH_LIBS([regcomp],posix regexp regex re,,
-    [
-      if test x$alpine_REGEX = "xno" ; then
-        AC_ERROR([Unable to find system regex library])
-      else
-	alpine_REGEX=yes
-      fi
-    ])
-fi
-if test x$alpine_REGEX != "xyes" ; then
-  AC_CHECK_HEADER([regex.h],,
-    [
-      if test x$alpine_REGEX = "xno" ; then
-	AC_ERROR([Unable to find system regex include file])
-      else
-	alpine_REGEX=yes
-      fi
-    ])
-fi
-AC_DEFINE(HAVE_REGEX_H,1,[Regular expression header file exists])
-if test x$alpine_REGEX = "xyes" ; then
-  CPPFLAGS="$CPPFLAGS -I${top_builddir}/regex"
-  LDFLAGS="$LDFLAGS -L${top_builddir}/regex -lregex"
-  REGEX_BUILD=regex
-fi
-
-if test "x$with_pthread" != "xno" ; then
-  AC_MSG_CHECKING([for pthread support])
-  ACX_PTHREAD(
-    [
-      AC_MSG_RESULT([yes])
-      case "$target" in
-	  *openbsd*)
-	    AC_MSG_NOTICE([WARNING: pthread support on OpenBSD is unstable!])
-	    AM_CFLAGS="$AM_CFLAGS -pthread"
-	    ;;
-      esac
-      LIBS="$PTHREAD_LIBS $LIBS"
-      AM_CFLAGS="$AM_CFLAGS $PTHREAD_CFLAGS"
-      CC="$PTHREAD_CC"
-      AC_DEFINE([HAVE_PTHREAD], [1], [System has pthread support])
-    ],
-    [
-      AC_MSG_RESULT([no])
-    ])
-
-  AC_SEARCH_LIBS([nanosleep], [rt posix4],
-    [
-      AC_DEFINE([HAVE_NANOSLEEP], [1], [Define if system supports subsecond, non-alarm sleep])
-    ])
-fi
-
-
-
-dnl CHECK HEADERS
-
-AC_HEADER_STDC
-AC_HEADER_DIRENT
-AC_HEADER_STAT
-AC_HEADER_SYS_WAIT
-AC_HEADER_TIME
-AC_HEADER_TIOCGWINSZ
-
-AC_UNISTD_H
-
-AC_CHECK_HEADERS([errno.h \
-		  ctype.h \
-		  fcntl.h \
-		  signal.h \
-		  setjmp.h \
-		  memory.h \
-		  sys/param.h \
-		  sys/socket.h \
-		  sys/uio.h \
-		  sys/un.h \
-		  limits.h \
-		  wchar.h \
-		  sys/poll.h \
-		  stropts.h \
-		  netdb.h \
-		  syslog.h \
-		  sys/syslog.h \
-		  locale.h \
-		  langinfo.h \
-		  utime.h \
-		  sys/utime.h \
-		  pthread.h \
-		  pwd.h \
-		  assert.h])
-
-dnl terminal line discipline?
-AC_CHECK_HEADER([termios.h],
-  AC_DEFINE(HAS_TERMIOS, [1], [Define if systems uses termios terminal control]),
-  [
-    AC_CHECK_HEADER([termio.h],
-      AC_DEFINE(HAS_TERMIO, [1], [Define if systems uses termio terminal control]),
-      [
-        AC_CHECK_HEADER([sgtty.h],
-	  AC_DEFINE(HAS_SGTTY, [1], [Define if systems uses old BSD-style terminal control]),
-	[
-	  AC_ERROR([Unable to figure out terminal control method])
-	])
-      ])
-  ])
-
-
-dnl CHECK TYPEDEFS
-
-AC_TYPE_SIGNAL
-AC_TYPE_SIZE_T
-AC_TYPE_MODE_T
-AC_TYPE_PID_T
-AC_TYPE_UID_T
-AC_STRUCT_TM
-
-AC_CHECK_TYPES([union wait])
-
-AC_CHECK_HEADERS([stdint.h], [uint16=uint16_t], [
-  AC_CHECK_HEADERS([inttypes.h], [uint16=uint16_t], [
-    AC_CHECK_HEADERS([sys/types.h], [uint16=u_int16_t], [
-      AC_CHECK_SIZEOF(unsigned short)
-      if test $ac_cv_sizeof_unsigned_short -eq 2 ; then
-	uint16="unsigned short"
-      else
-	AC_CHECK_SIZEOF(unsigned int)
-	if $ac_cv_sizeof_unsigned_int -eq 2 ; then
-	  uint16="unsigned int"
-	else
-	  AC_ERROR([Unable to determine 16 bit integer type])
-        fi
-      fi
-    ])
-  ])
-])
-AC_DEFINE_UNQUOTED([UINT16], $uint16, [System defined unsigned 16 bit integer])
-
-AC_CHECK_HEADERS([stdint.h], [uint32=uint32_t], [
-  AC_CHECK_HEADERS([inttypes.h], [uint32=uint32_t], [
-    AC_CHECK_HEADERS([sys/types.h], [uint32=u_int32_t], [
-      AC_CHECK_SIZEOF(unsigned int)
-      if test $ac_cv_sizeof_unsigned_int -eq 4 ; then
-	uint32="unsigned int"
-      else
-	AC_CHECK_SIZEOF(unsigned long)
-	if $ac_cv_sizeof_unsigned_long -eq 4 ; then
-	  uint32="unsigned long"
-	else
-	  AC_ERROR([Unable to determine 32 bit integer type])
-        fi
-      fi
-    ])
-  ])
-])
-AC_DEFINE_UNQUOTED([UINT32], $uint32, [System defined unsigned 32 bit integer])
-
-AC_CACHE_CHECK(argument pointer type of qsort compare function and base,
-ac_cv_func_qsort_argtype,
-[AC_TRY_COMPILE([
-#if	HAVE_STDLIB_H
-#include "stdlib.h"
-#endif
-
-extern void *base;
-extern sortf(const void *, const void *);
-int sortf(a, b)
-  const void *a;
-  const void *b; { return 0; }
-],[
-qsort(base, 2, sizeof(char *), sortf);
-],
-	ac_cv_func_qsort_argtype=void, ac_cv_func_qsort_argtype=char)
-])
-AC_DEFINE_UNQUOTED([qsort_t], $ac_cv_func_qsort_argtype, [qsort compare function argument type])
-
-dnl check for "struct passwd" ?
-
-AC_FUNC_SELECT_ARGTYPES
-
-AC_FUNC_STRCOLL
-
-dnl CHECK FOR LIBRARY FUNCTIONS
-
-AC_FUNC_FORK
-AC_CHECK_FUNCS([strchr \
-		memcpy \
-		strtol \
-		strtoul \
-		select \
-		poll \
-		qsort \
-	 	getuid \
-		getpwuid \
-		getpwnam \
-	        gettimeofday \
-		tmpfile \
-		uname \
-		rename \
-		read \
-		signal \
-		setjmp \
-		chown \
-		wait4 \
-		waitpid \
-		wait \
-		srandom \
-		popen \
-		pclose \
-		fsync \
-		truncate \
-		listen \
-		wcwidth \
-		mbstowcs \
-		wcrtomb \
-		putenv \
-		setenv])
-
-AC_SEARCH_LIBS([gethostname],[nsl])
-
-AC_SEARCH_LIBS([socket],[socket],,
-  [
-    WEB_BUILD=
-  ])
-
-AC_SEARCH_LIBS([bind],[bind],,
-  [
-    WEB_BUILD=
-  ])
-
-dnl check for POSIX signal interface
-AC_CHECK_FUNCS([sigaction sigemptyset sigaddset sigprocmask],
-  [
-    AC_DEFINE([POSIX_SIGNALS], [], [Define if system supports POSIX signal interface])
-  ],
-  [
-    AC_CHECK_FUNCS([sigset sigrelse],
-      [
-	AC_DEFINE([SYSV_SIGNALS], [], [Define if system supports SYSV signal interface])
-      ])
-  ])
-
-AC_SEARCH_LIBS([syslog], [bsd socket inet],
-  [
-    AC_DEFINE([HAVE_SYSLOG], [1], [Define if system supplies syslog() logging])
-  ])
-
+dnl Assume PAM is *not* required and only set the systems that need it.
+alpine_PAM="none"
 
 dnl HOST-OS SPECIFIC DEFINITIONS
 dnl Tests and assignments below are mostly to coax the appropriate
@@ -1325,6 +905,7 @@ case "$host" in
     alpine_mode_readonly="(0600)"
     if test -f /etc/fedora-release ; then  
       systype="LFD"
+      alpine_PAM="yes"
       if test -d /etc/pki/tls ; then  
 	alpine_c_client_target="lfd"
       else
@@ -1333,8 +914,10 @@ case "$host" in
     elif test -f /etc/mandrake-release ; then
       systype="LMD"
       alpine_c_client_target="lmd"
+      alpine_PAM="yes"
     elif test -f /etc/redhat-release -o -f /etc/redhat_version ; then
       systype="LRH"
+      alpine_PAM="yes"
       if test -d /etc/pki/tls ; then  
 	alpine_c_client_target="lr5"
       else
@@ -1347,15 +930,18 @@ case "$host" in
       else
         systype="DEB"
         alpine_c_client_target="ldb"
+	alpine_PAM="yes"
       fi
     elif test -f /etc/SuSE-release ; then
       systype="LSU"
       alpine_c_client_target="lsu"
+      alpine_PAM="yes"
     else
       systype="LNX"
       AC_CHECK_LIB(pam, pam_start,
         [
           alpine_c_client_target="lnp"
+	  alpine_PAM="yes"
         ],
         [
 	  if test -f /etc/shadow ; then
@@ -1383,7 +969,21 @@ case "$host" in
     esac
     AC_CHECK_LIB(pam, pam_start,
       [
-        alpine_c_client_target="oxp"
+	AC_CHECK_HEADER([security/pam_appl.h],
+	[
+	  alpine_PAM="yes"
+	  alpine_c_client_target="oxs"
+	],
+	[	AC_CHECK_HEADER([pam/pam_appl.h],
+		[
+		   alpine_PAM="yes"
+		   alpine_c_client_target="oxp" 
+		],
+		[
+		  alpine_PAM="none"
+		  alpine_pam_none_reason="header files not found"
+		])
+	])
       ],
       [
         alpine_c_client_target="osx"
@@ -1492,7 +1092,7 @@ case "$host" in
     ;;
   *-*-cygwin)
     systype="CYG"
-    alpine_path_delim="\\\\"
+    alpine_path_delim="/"
     alpine_mode_readonly="(S_IREAD | S_IWRITE)"
     alpine_c_client_target="cyg"
     LIBS="$LIBS $LIBINTL"
@@ -1505,9 +1105,548 @@ case "$host" in
     AC_DEFINE([_WINDOWS], [1], [Windows is just too different])
     ;;
   *)
-    AC_ERROR([Unrecognized system: $host])
+    AC_MSG_ERROR(Unrecognized system: $host)
     ;;
 esac
+
+dnl Without IPv6?
+AC_ARG_WITH(ipv6,
+  AS_HELP_STRING([--without-ipv6],[Disable IPv6, primarily to work around resolver problems]),
+  [ with_ipv6=$withval ])
+
+if test "x$with_ipv6" = "xno" ; then
+  AC_MSG_NOTICE([Excluding IPv6 Support])
+  c_client_specials="${c_client_specials}IP6=4 "
+  c_client_ip6="true"
+else
+  c_client_ip6="touch imap/ip6"
+fi
+
+
+dnl CHECK LIBRARIES
+
+if test x$enable_dmalloc = "xyes" ; then
+  if test "x$with_pthread" = "xyes" ; then
+    dmalloc_lib=dmallocth
+  else
+    dmalloc_lib=dmalloc
+  fi
+
+  AC_CHECK_LIB($dmalloc_lib,dmalloc_shutdown,,
+    [
+      AC_MSG_ERROR($dmalloc_lib requested, but -ldmalloc not found)
+    ])
+fi
+
+dnl which terminal cabability database
+AC_CHECK_LIB(tinfo, setupterm,
+  [
+    alpine_termdata=info
+    LIBS="$LIBS -ltinfo"
+  ],
+  [
+    AC_CHECK_LIB(ncurses, setupterm,
+      [
+        alpine_termdata=info
+        LIBS="$LIBS -lncurses"
+      ],
+      [
+        AC_CHECK_LIB(curses, setupterm,
+          [
+            alpine_termdata=info
+            LIBS="$LIBS -lcurses"
+          ],
+          [
+            AC_CHECK_LIB(termlib, tgetent,
+              [
+                alpine_termdata=cap
+                LIBS="$LIBS -ltermlib"
+              ],
+              [
+                AC_CHECK_LIB(termcap, tgetent,
+                  [
+                    alpine_termdata=cap
+                    LIBS="$LIBS -ltermcap"
+                  ],
+                  [
+                    AC_MSG_ERROR(Terminfo/termcap not found)
+                  ])
+              ])
+          ])
+      ])
+  ])
+case $alpine_termdata in
+  info)
+    AC_DEFINE(HAS_TERMINFO, [1], [Define if systems uses terminfo terminal database])
+    ;;
+  cap)
+    AC_DEFINE(HAS_TERMCAP, [1], [Define if systems uses termcap terminal database])
+    ;;
+esac
+
+dnl provide LDAP support?
+if test "$alpine_with_ldap" = "yes" ; then
+  alpine_has_ldap=
+  AC_CHECK_LIB(lber, ber_alloc,
+    [
+      LIBS="$LIBS -llber"
+    ])
+  AC_SEARCH_LIBS(ldap_init,ldap,
+    [
+      alpine_has_ldap=yes
+    ],
+    [
+      AC_SEARCH_LIBS(ldap_open,ldap,
+	[
+	  alpine_has_ldap=yes
+	])
+    ])
+
+  if test "$alpine_has_ldap" = "yes" ; then
+    AC_MSG_NOTICE([Including LDAP Support])
+    AC_DEFINE([ENABLE_LDAP], [], [Enable LDAP query support])
+
+    dnl we use deprecated functions (ldap_get_values)
+    dnl OpenLDAP 2.3.x doesn't define LDAP_DEPRECATED by default like 2.2.x
+    AC_MSG_CHECKING([if we should define LDAP_DEPRECATED])
+    AC_RUN_IFELSE(
+	[AC_LANG_SOURCE([[
+#include <stdio.h>
+#include <string.h>
+#include <ldap.h>
+int main(void) {
+
+	if (LDAP_VENDOR_VERSION >= 20300)
+		exit(0);
+
+	exit(2);
+}
+	]])],
+	[
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(LDAP_DEPRECATED, 1,
+		[Define if you use OpenLDAP 2.3.x deprecated functions])
+
+	],
+	[
+		AC_MSG_RESULT(no)
+	],
+	[
+		AC_MSG_WARN([cross compiling: not checking])
+	]
+    )
+
+  else
+    AC_MSG_NOTICE([Cannot find LDAP functions!  Excluding LDAP support.])
+  fi
+fi
+
+dnl provide SSL support?
+if test "x$alpine_SSLTYPE" != "xnone" ; then
+  AC_SEARCH_LIBS(SSL_library_init,ssl,
+    [
+      LIBS="$LIBS -lssl"
+
+     AC_MSG_CHECKING([Openssl library version >= 1.0.0c])
+     AC_RUN_IFELSE(
+	[AC_LANG_SOURCE([[
+#include <stdio.h>
+#include <openssl/ssl.h>
+int main(void) {
+
+	if (OPENSSL_VERSION_NUMBER >= 0x1000003f)
+		exit(0);
+
+	exit(2);
+}
+	]])],
+	[
+		AC_MSG_RESULT(yes)
+	],
+	[
+		AC_MSG_ERROR(Install openssl version >= 1.0.1c)
+		exit 1
+	],
+	[
+		AC_MSG_WARN([cross compiling: not checking])
+	]
+    )
+    ],
+    [alpine_SSLTYPE="none"])
+  if test "x$alpine_SSLTYPE" = "xnone" ; then
+    AC_MSG_NOTICE([OpenSSL libraries NOT found])
+  else
+    AC_MSG_NOTICE([OpenSSL libraries FOUND])
+  fi
+fi
+
+dnl Crypto support is needed 
+if test "x$alpine_SSLTYPE" != "xnone" ; then
+  AC_SEARCH_LIBS(SSLeay,crypto,
+    [
+      LIBS="$LIBS -lcrypto"
+    ],
+    [
+      alpine_CRYPTO = "none"
+    ])
+  if test "x$alpine_CRYPTO" = "xnone" ; then
+    AC_MSG_ERROR(crypto library NOT found)
+  else
+    AC_MSG_NOTICE([crypto library found])
+  fi
+fi
+
+dnl PAM support is needed to build c-client in some linux, and hence Alpine.
+if test "x$alpine_PAM" != "xnone" ; then
+  AC_SEARCH_LIBS(pam_start,pam,
+      [
+	LIBS="$LIBS -lpam"
+	AC_CHECK_HEADER([security/pam_appl.h],
+	[
+	  alpine_PAM="yes"
+	],
+	dnl Only mac is incompatible, do not spread bad habits.
+	[ AC_CHECK_HEADER([pam/pam_appl.h],
+	  [
+		alpine_PAM="yes"
+		if test "x$alpine_c_client_target" != "xoxp" ; then
+		   alpine_PAM="none"
+		   alpine_pam_none_reason="header files not in security/ directory"
+		fi
+	  ],
+	  [
+		alpine_PAM="none"
+		alpine_pam_none_reason="header files not found"
+	  ])
+	])
+      ],
+      [
+	alpine_PAM="none"
+	alpine_pam_none_reason="library files not found"
+      ])
+    if test -n "$alpine_pam_none_reason" ; then
+      AC_MSG_ERROR(No PAM support: $alpine_pam_none_reason)
+  fi
+fi
+
+
+dnl provide KRB5 support?
+if test "x$alpine_GSSTYPE" != "xnone" ; then
+  AC_SEARCH_LIBS(gss_init_sec_context,gss gssapi gssapi_krb5,
+    [
+      dnl MIT-based?
+      LIBS="$LIBS -lkrb5"
+      AC_CHECK_HEADER([gssapi/gssapi_generic.h],,
+	[
+	  if test ! -d /usr/kerberos/include ; then
+	    alpine_GSSTYPE="none"
+	    alpine_gss_none_reason="header files not found"
+	  fi
+	])
+    ],
+    [
+      alpine_GSSTYPE="none"
+      alpine_gss_none_reason="libraries not found"
+    ])
+  if test -n "$alpine_gss_none_reason" ; then
+    AC_MSG_NOTICE([NOT including Kerberos Support: $alpine_gss_none_reason])
+  fi
+fi
+
+dnl check for tcl libraries for Web Alpine (HACKY)
+if test -n "$WEB_BUILD" ; then
+  AC_SEARCH_LIBS([Tcl_Eval],[$alpine_TCLLIB tcl8.5 tcl8.4 tcl8.3 tcl84 tcl83 tcl],,
+    [
+      WEB_BUILD=
+    ])
+
+  dnl look for header file
+  if test -n "$alpine_TCLINC" ; then
+    AC_CHECK_HEADER($alpine_TCLINC,,
+      [
+	WEB_BUILD=
+      ])
+    if test -z "$WEB_BUILD" ; then
+      AC_MSG_NOTICE([Tcl Include file NOT found])
+    fi
+  else
+    AC_CHECK_HEADER(tcl.h,,
+      [
+	for dir in tcl8.5 tcl8.4 tcl8.3 tcl84 tcl83 ; do
+	  AC_CHECK_FILE([/usr/include/$dir/tcl.h],
+	    [
+	      found=yes
+	    ])
+	  if test "$found" = "yes" ; then
+	    CPPFLAGS="$CPPFLAGS -I/usr/include/$dir"
+	    break
+	  fi
+	done
+	if test "$found" != "yes" ; then
+	    WEB_BUILD=
+	    AC_MSG_NOTICE([header file tcl.h NOT found: Web Alpine will not be built])
+	fi
+      ])
+  fi
+fi
+
+dnl Local or supplied regex?
+if test x$alpine_REGEX != "xyes" ; then
+  AC_SEARCH_LIBS([regcomp],posix regexp regex re,,
+    [
+      if test x$alpine_REGEX = "xno" ; then
+        AC_MSG_ERROR(Unable to find system regex library)
+      else
+	alpine_REGEX=yes
+      fi
+    ])
+fi
+if test x$alpine_REGEX != "xyes" ; then
+  AC_CHECK_HEADER([regex.h],,
+    [
+      if test x$alpine_REGEX = "xno" ; then
+	AC_MSG_ERROR(Unable to find system regex include file)
+      else
+	alpine_REGEX=yes
+      fi
+    ])
+fi
+AC_DEFINE(HAVE_REGEX_H,1,[Regular expression header file exists])
+if test x$alpine_REGEX = "xyes" ; then
+  CPPFLAGS="$CPPFLAGS -I${top_builddir}/regex"
+  LDFLAGS="$LDFLAGS -L${top_builddir}/regex -lregex"
+  REGEX_BUILD=regex
+fi
+
+if test "x$with_pthread" != "xno" ; then
+  AC_MSG_CHECKING([for pthread support])
+  ACX_PTHREAD(
+    [
+      AC_MSG_RESULT([yes])
+      case "$target" in
+	  *openbsd*)
+	    AC_MSG_NOTICE([WARNING: pthread support on OpenBSD is unstable!])
+	    AM_CFLAGS="$AM_CFLAGS -pthread"
+	    ;;
+      esac
+      LIBS="$PTHREAD_LIBS $LIBS"
+      AM_CFLAGS="$AM_CFLAGS $PTHREAD_CFLAGS"
+      CC="$PTHREAD_CC"
+      AC_DEFINE([HAVE_PTHREAD], [1], [System has pthread support])
+    ],
+    [
+      AC_MSG_RESULT([no])
+    ])
+
+  AC_SEARCH_LIBS([nanosleep], [rt posix4],
+    [
+      AC_DEFINE([HAVE_NANOSLEEP], [1], [Define if system supports subsecond, non-alarm sleep])
+    ])
+fi
+
+
+
+dnl CHECK HEADERS
+
+AC_HEADER_STDC
+AC_HEADER_DIRENT
+AC_HEADER_STAT
+AC_HEADER_SYS_WAIT
+AC_HEADER_TIME
+AC_HEADER_TIOCGWINSZ
+
+AC_CHECK_HEADERS([unistd.h])
+
+AC_CHECK_HEADERS([errno.h \
+		  ctype.h \
+		  fcntl.h \
+		  signal.h \
+		  setjmp.h \
+		  memory.h \
+		  sys/param.h \
+		  sys/socket.h \
+		  sys/uio.h \
+		  sys/un.h \
+		  limits.h \
+		  wchar.h \
+		  sys/poll.h \
+		  stropts.h \
+		  netdb.h \
+		  syslog.h \
+		  sys/syslog.h \
+		  locale.h \
+		  langinfo.h \
+		  utime.h \
+		  sys/utime.h \
+		  pthread.h \
+		  pwd.h \
+		  assert.h])
+
+dnl terminal line discipline?
+AC_CHECK_HEADER([termios.h],
+  AC_DEFINE(HAS_TERMIOS, [1], [Define if systems uses termios terminal control]),
+  [
+    AC_CHECK_HEADER([termio.h],
+      AC_DEFINE(HAS_TERMIO, [1], [Define if systems uses termio terminal control]),
+      [
+        AC_CHECK_HEADER([sgtty.h],
+	  AC_DEFINE(HAS_SGTTY, [1], [Define if systems uses old BSD-style terminal control]),
+	[
+	  AC_MSG_ERROR(Unable to figure out terminal control method)
+	])
+      ])
+  ])
+
+
+dnl CHECK TYPEDEFS
+
+AC_DIAGNOSE([obsolete],[your code may safely assume C89 semantics that RETSIGTYPE is void.
+Remove this warning and the `AC_CACHE_CHECK' when you adjust the code.])dnl
+AC_CACHE_CHECK([return type of signal handlers],[ac_cv_type_signal],[AC_COMPILE_IFELSE(
+[AC_LANG_PROGRAM([#include <sys/types.h>
+#include <signal.h>
+],
+		 [return *(signal (0, 0)) (0) == 1;])],
+		   [ac_cv_type_signal=int],
+		   [ac_cv_type_signal=void])])
+AC_DEFINE_UNQUOTED([RETSIGTYPE],[$ac_cv_type_signal],[Define as the return type of signal handlers
+		    (`int' or `void').])
+
+AC_TYPE_SIZE_T
+AC_TYPE_MODE_T
+AC_TYPE_PID_T
+AC_TYPE_UID_T
+AC_STRUCT_TM
+
+AC_CHECK_TYPES([union wait])
+
+AC_CHECK_HEADERS([stdint.h], [uint16=uint16_t], [
+  AC_CHECK_HEADERS([inttypes.h], [uint16=uint16_t], [
+    AC_CHECK_HEADERS([sys/types.h], [uint16=u_int16_t], [
+      AC_CHECK_SIZEOF(unsigned short)
+      if test $ac_cv_sizeof_unsigned_short -eq 2 ; then
+	uint16="unsigned short"
+      else
+	AC_CHECK_SIZEOF(unsigned int)
+	if $ac_cv_sizeof_unsigned_int -eq 2 ; then
+	  uint16="unsigned int"
+	else
+	  AC_MSG_ERROR(Unable to determine 16 bit integer type)
+        fi
+      fi
+    ])
+  ])
+])
+AC_DEFINE_UNQUOTED([UINT16], $uint16, [System defined unsigned 16 bit integer])
+
+AC_CHECK_HEADERS([stdint.h], [uint32=uint32_t], [
+  AC_CHECK_HEADERS([inttypes.h], [uint32=uint32_t], [
+    AC_CHECK_HEADERS([sys/types.h], [uint32=u_int32_t], [
+      AC_CHECK_SIZEOF(unsigned int)
+      if test $ac_cv_sizeof_unsigned_int -eq 4 ; then
+	uint32="unsigned int"
+      else
+	AC_CHECK_SIZEOF(unsigned long)
+	if $ac_cv_sizeof_unsigned_long -eq 4 ; then
+	  uint32="unsigned long"
+	else
+	  AC_MSG_ERROR(Unable to determine 32 bit integer type)
+        fi
+      fi
+    ])
+  ])
+])
+AC_DEFINE_UNQUOTED([UINT32], $uint32, [System defined unsigned 32 bit integer])
+
+AC_CACHE_CHECK(argument pointer type of qsort compare function and base,
+ac_cv_func_qsort_argtype,
+[AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+#if	HAVE_STDLIB_H
+#include "stdlib.h"
+#endif
+
+extern void *base;
+extern sortf(const void *, const void *);
+int sortf(a, b)
+  const void *a;
+  const void *b; { return 0; }
+]], [[
+qsort(base, 2, sizeof(char *), sortf);
+]])],[ac_cv_func_qsort_argtype=void],[ac_cv_func_qsort_argtype=char])
+])
+AC_DEFINE_UNQUOTED([qsort_t], $ac_cv_func_qsort_argtype, [qsort compare function argument type])
+
+dnl check for "struct passwd" ?
+
+AC_FUNC_SELECT_ARGTYPES
+
+AC_FUNC_STRCOLL
+
+dnl CHECK FOR LIBRARY FUNCTIONS
+
+AC_FUNC_FORK
+AC_CHECK_FUNCS([strchr \
+		memcpy \
+		strtol \
+		strtoul \
+		select \
+		poll \
+		qsort \
+	 	getuid \
+		getpwuid \
+		getpwnam \
+	        gettimeofday \
+		tmpfile \
+		uname \
+		rename \
+		read \
+		signal \
+		setjmp \
+		chown \
+		wait4 \
+		waitpid \
+		wait \
+		srandom \
+		popen \
+		pclose \
+		fsync \
+		truncate \
+		listen \
+		wcwidth \
+		mbstowcs \
+		wcrtomb \
+		putenv \
+		setenv])
+
+AC_SEARCH_LIBS([gethostname],[nsl])
+
+AC_SEARCH_LIBS([socket],[socket],,
+  [
+    WEB_BUILD=
+  ])
+
+AC_SEARCH_LIBS([bind],[bind],,
+  [
+    WEB_BUILD=
+  ])
+
+dnl check for POSIX signal interface
+AC_CHECK_FUNCS([sigaction sigemptyset sigaddset sigprocmask],
+  [
+    AC_DEFINE([POSIX_SIGNALS], [], [Define if system supports POSIX signal interface])
+  ],
+  [
+    AC_CHECK_FUNCS([sigset sigrelse],
+      [
+	AC_DEFINE([SYSV_SIGNALS], [], [Define if system supports SYSV signal interface])
+      ])
+  ])
+
+AC_SEARCH_LIBS([syslog], [bsd socket inet],
+  [
+    AC_DEFINE([HAVE_SYSLOG], [1], [Define if system supplies syslog() logging])
+  ])
+
 
 dnl set pico newmail check directory
 if test -n "$alpine_with_local_maildir" ; then
@@ -1656,10 +1795,11 @@ AC_SUBST([WEB_PUBCOOKIE_LINK])
 AC_SUBST([AM_CFLAGS])
 AC_SUBST([AM_LDFLAGS])
 
-AC_OUTPUT(m4/Makefile po/Makefile.in regex/Makefile \
+AC_CONFIG_FILES([m4/Makefile po/Makefile.in regex/Makefile \
 	  pith/osdep/Makefile pith/charconv/Makefile pith/Makefile \
 	  pico/osdep/Makefile pico/Makefile \
 	  alpine/osdep/Makefile alpine/Makefile \
 	  web/src/Makefile web/src/pubcookie/Makefile \
 	  web/src/alpined.d/Makefile \
-	  Makefile)
+	  Makefile])
+AC_OUTPUT

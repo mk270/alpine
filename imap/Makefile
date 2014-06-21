@@ -101,6 +101,7 @@
 # osi	Apple iPhone and iPod Touch
 # osx	Mac OS X
 # oxp	Mac OS X with Pluggable Authentication Modules (PAM)
+# osx	Mac OS X Snow Leopard
 # ptx	PTX
 # pyr	Pyramid
 # qnx	QNX 4
@@ -420,6 +421,12 @@ oxp:	an
 	$(BUILD) BUILDTYPE=osx IP=$(IP6) EXTRAAUTHENTICATORS="$(EXTRAAUTHENTICATORS) gss" \
 	PASSWDTYPE=pam \
 	EXTRACFLAGS="$(EXTRACFLAGS) -DMAC_OSX_KLUDGE=1" \
+	SPECIALS="SSLINCLUDE=/usr/include/openssl SSLLIB=/usr/lib SSLCERTS=/System/Library/OpenSSL/certs SSLKEYS=/System/Library/OpenSSL/private GSSINCLUDE=/usr/include GSSLIB=/usr/lib PAMDLFLAGS=-lpam"
+
+oxs:	an
+	$(TOUCH) ip6
+	$(BUILD) BUILDTYPE=osx IP=$(IP6) EXTRAAUTHENTICATORS="$(EXTRAAUTHENTICATORS) gss" \
+	PASSWDTYPE=pam \
 	SPECIALS="SSLINCLUDE=/usr/include/openssl SSLLIB=/usr/lib SSLCERTS=/System/Library/OpenSSL/certs SSLKEYS=/System/Library/OpenSSL/private GSSINCLUDE=/usr/include GSSLIB=/usr/lib PAMDLFLAGS=-lpam"
 
 osx:	osxok an

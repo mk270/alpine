@@ -32,6 +32,7 @@
 #undef	TRUE
 #define TRUE    1                       /* True, yes, good, etc.        */
 #define ABORT   2                       /* Death, ^G, abort, etc.       */
+#define	COUNT	3			/* For control-c command        */
 
 
 #undef  MIN
