@@ -1,7 +1,6 @@
 10_config2etc.patch
 10_alpine_1.10_mlock.patch
 10_alpine_1.10_spooldir.patch
-20_barry_defreese_hurd_build_fix.patch
 30_fix_man_page_hardcoded_paths.patch
 40_fix_tech_notes_hardcoded_paths.patch
 40_fix_filter_hardcoded_paths.patch
