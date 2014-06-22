@@ -14,8 +14,6 @@ Some files have been removed to comply with the Debian Free Software
 Guidelines. See Debian bug #641479 <http://bugs.debian.org/641479>
 for more history. Particular files that were removed are:
 
-* pico/msmem.c. Reason: File has, at best, ambiguous permission to distribute.
-
 A lot of "ldap" binaries with no obvious source code within the
 tarball, and that are not needed to do a build. Here is a list of them:
 
