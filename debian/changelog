@@ -12,7 +12,6 @@ alpine (2.11+dfsg1-1) UNRELEASED; urgency=medium
   * d/control: Drop b-dep on cdbs.
   * d/copyright: Update years and add myself.
   * d/copyright: Remove mention of pico/msmem.c, no longer in upstream tarball.
-  * d/rules: Export -Wl,--as-needed to prevent excessive linking.
   * d/rules: Update to dh sequencer.
   * d/rules: Add get-orig-source target.
   * d/alpine.docs: Add readme file.
