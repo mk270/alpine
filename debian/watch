@@ -1,3 +1,3 @@
 version=3
-opts=dversionmangle=s/\+dfsg// \
+opts=dversionmangle=s/\+dfsg\d*// \
 http://patches.freeiz.com/alpine/release/index.html  src/alpine-(.*)\.tar\.xz
