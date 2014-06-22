@@ -1,3 +1,25 @@
+alpine (2.11+dfsg1-1) UNRELEASED; urgency=medium
+
+  * Imported upstream version 2.11+dfsg1
+     - Drop patches 10_fix_linking_order.patch, 70_des56_rfc5751.patch,
+       60_fix_string_error.patch and 20_barry_defreese_hurd_build_fix.patch
+       as they are no longer needed.
+  * d/watch: Point to patches.freeiz.com
+  * d/control: Update homepage field to patches.freeiz.com.
+  * d/control: Drop duplicated Priority field and deprecated DM-Upload-Allowed.
+  * d/control: Use canonical VCS-* fields and the collab-maint git repo.
+  * d/control: Update standards-version to 3.9.5, no further changes.
+  * d/control: Drop b-dep on cdbs.
+  * d/rules: Update to dh sequencer.
+  * d/rules: Add get-orig-source target.
+  * d/alpine.docs: Add readme file.
+  * d/*install: Install from the the 'make install' paths.
+  * d/gbp.conf: Enable signed tags and pristine-tar.
+  * d/alpine-pico.manpages: Move the rename to after installing the manpage.
+  * Update compat level to 9.
+
+ -- Unit 193 <unit193@ubuntu.com>  Sun, 22 Jun 2014 02:53:30 -0400
+
 alpine (2.10+dfsg-1) unstable; urgency=low
 
   * New upstream release.
