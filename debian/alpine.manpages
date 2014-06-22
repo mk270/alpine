@@ -1,2 +1,2 @@
-usr/share/man/man1/alpine.1
-usr/share/man/man1/rp*.1
+debian/tmp/usr/share/man/man1/alpine.1
+debian/tmp/usr/share/man/man1/rp*.1
