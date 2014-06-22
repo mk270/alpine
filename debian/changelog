@@ -10,7 +10,8 @@ alpine (2.11+dfsg1-1) UNRELEASED; urgency=medium
   * d/control: Use canonical VCS-* fields and the collab-maint git repo.
   * d/control: Update standards-version to 3.9.5, no further changes.
   * d/control: Drop b-dep on cdbs.
-  * d/rules: Add -Wl,--as-needed to prevent excessive linking. Closes: #460327
+  * d/copyright: Update years and add myself.
+  * d/rules: Export -Wl,--as-needed to prevent excessive linking.
   * d/rules: Update to dh sequencer.
   * d/rules: Add get-orig-source target.
   * d/alpine.docs: Add readme file.
