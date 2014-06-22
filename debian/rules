@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 # debian/rules for alpine
 
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
 override_dh_auto_configure:
 	dh_auto_configure -- --host=$(DEB_HOST_GNU_TYPE) \
 			     --build=$(DEB_BUILD_GNU_TYPE) \
