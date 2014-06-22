@@ -29,6 +29,9 @@ override_dh_installman:
 override_dh_strip:
 	dh_strip --dbg-package=alpine-dbg
 
+override_dh_clean:
+	dh_clean -Xinclude/config.h.in~ -Xweb/cgi/alpine/2.0/img/cbn/msglist.gif.bak
+
 %:
 	dh $@
 
