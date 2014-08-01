@@ -38,7 +38,7 @@ override_dh_clean:
 	dh_clean -Xinclude/config.h.in~ -Xweb/cgi/alpine/2.0/img/cbn/msglist.gif.bak
 
 %:
-	dh $@
+	dh $@ --with autoreconf
 
 # get-orig-source to drop dlls and exe files, fix license-problem-non-free-RFC-BCP78.
 upstream_version ?= $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)(\+dfsg\d+)?.*$$/\1/p')
